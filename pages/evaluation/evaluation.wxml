@@ -1,0 +1,61 @@
+<view class='go_pay'>
+  <text class='obli'>已评论</text>
+  <text class='cancel'>订单已评论，期待您的再次光临！</text>
+</view>
+
+<view class='content'>
+
+  <view class='pay_name'>
+    <text class='name'>西门子开关32只套餐</text>
+    <text class='tip'>有条件可退</text>
+    <navigator>已评价</navigator>
+  </view>
+
+  <text class='bianhao'>订单编号：1255 4233 6599 778</text>
+
+  <view class='money'>
+    <text>套餐价格</text>
+    <text class='m'>¥600</text>
+  </view>
+
+  <view class='money border-10'>
+    <text>订金</text>
+    <text class='m red'>¥100</text>
+  </view>
+
+  <view class='tips'>
+    <text>使用日期：<text class='color_red'>2018年7月17日至2018年8月1日</text></text>
+    <text>使用方法：<text>到店购买产品，享受订单折扣，请持商家电子</text></text>
+    <text>营业时间：<text>周一至周日 9：00-17：00\n周一至周日 9：00-17：00</text></text>
+    <text>门店地址：<text>杭州市江干区h东浦路大会结束富家大室</text></text>
+    <text>购买数量：<text>1套</text></text>
+    <text>套餐包含：<text>杭州市江干区h东浦路大会结束富家大室，买产品，享受订单折扣，请持商</text></text>
+
+    <view class='instructions border1'>
+      <text style='font-weight:bold;'>说明</text>
+      <text>折扣：<text>今日下单，送前置过滤器一个</text></text>
+      <text>服务：<text>010区域免费送货，送一体化安装</text></text>
+    </view>
+
+    <text>退订规则：<text class='color_red'>杭州市江干区h东浦路大会结束富家大室，买产品，享受订单折扣，请持商</text></text>
+  </view>
+
+  <view class='ziliao'>
+    <text class='bold'>业主：张三       13220000001</text>
+    <text>地址：杭州市江干区九堡镇格畈北苑9排2号3单元101</text>
+  </view>
+
+  <view class='date'>
+    <text>下单时间：2018-07-17 17:55:23</text>
+    <text>支付方式：在线支付</text>
+    <text>供应商：杭州美金电器有限公司</text>
+  </view>
+</view>
+
+<view class='bg'></view>
+
+<view class='call'>
+  <text>如遇到商品信息和订单相关问题，请拨打供应商客服电话： <text class='color_blue'>400-091-0090</text></text>
+  <text>消费不满意，投诉供应商，请拨打轻松装客服电话：\n <text class='color_blue'>400-091-0090</text></text>
+</view>
+

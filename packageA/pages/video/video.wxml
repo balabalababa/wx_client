@@ -1,0 +1,22 @@
+<view>
+  <view class="section tc">
+  <video id="myVideo" poster="{{room.cover_img}}" title="{{room.name}}" src="{{room.video}}" controls></video>
+</view>
+
+<view>
+<view class="room_title">{{room.name}}</view>
+<view class="goods_wrap">
+<view wx:for="{{room.goods}}" wx:key="index" class="goods_item">
+ <view class="item_img">
+ <image src="{{item.cover_img}}"></image>
+ </view>
+ <view class="item_info">
+ <view class="item_title">{{item.name}}</view>
+  <view class="item_price">优惠价：{{item.price/100}}</view>
+ </view>
+</view>
+</view>
+</view>
+
+</view>
+

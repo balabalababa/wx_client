@@ -1,0 +1,87 @@
+<view class='header'>
+  <navigator class='address' url='/pages/choose/choose'>
+    <image src='/assets/location.jpg' mode="aspectFill" />
+    <text>{{cityText}}</text>
+  </navigator>
+  <view class='search'>
+    <icon type='search' size='15' />
+    <input placeholder="搜索品牌" type="text" bindinput='inputText' bindconfirm='searchDetail' />
+  </view>
+  <!-- <text bindtap='searchDetail'>搜索</text> -->
+</view>
+
+<swiper class="slides" autoplay="{{imgUrls.length > 1}}" indicator-dots="{{imgUrls.length > 1}}" indicator-color="#bcc0c9" indicator-active-color="#3a4861" circular="true">
+  <swiper-item wx:for="{{imgUrls}}" wx:key="id">
+    <navigator wx:if="{{item.followImgUrl}}" url="/pages/adver/adver?activityId={{item.activityId}}&&activityCity={{item.activityCity}}">
+      <image src="{{item.mianImgUrl}}" mode="aspectFill" />
+    </navigator>
+    <image wx:else src="{{item.mianImgUrl}}" mode="aspectFill" />
+  </swiper-item>
+</swiper>
+
+<view class='grids'>
+  <navigator class='item' url='/pages/list/list?classifyId=1&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_01.png' />
+    <text>开关插座</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=2&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_02.png' />
+    <text>瓷砖地板</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=3&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_03.png' />
+    <text>卫浴吊顶</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=4&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_04.png' />
+    <text>橱柜厨电</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=5&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_05.png' />
+    <text>衣柜木门</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=6&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_06.png' />
+    <text>门窗五金</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=7&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_07.png' />
+    <text>墙面材料</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=8&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_08.png' />
+    <text>家具家电</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=9&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_09.png' />
+    <text>装修公司</text>
+  </navigator>
+  <navigator class='item' url='/pages/list/list?classifyId=10&cityId={{cityId}}'>
+    <image src='/assets/icons/grid_10.png' />
+    <text>其他</text>
+  </navigator>
+</view>
+
+<view class='cells'>
+  <view class='bg'></view>
+  <text class='title'>网站推荐</text>
+  <block>
+    <view class="pro_box">
+      <navigator class="box" wx:for="{{shops}}" wx:key="{{brandID}}" url='/pages/new_product/new_product?id={{item.productID}}&brandid={{item.brandID}}&productFlag={{item.productFlag}}'>
+        <image src='{{item.productTitleImg[0]}}' mode="aspectFill" />
+        <text>{{item.productTitle}}</text>
+        <view class='info'>
+          <text class='tag' wx-if='{{item.productLittleTag}}'>{{item.productLittleTag}}</text>
+          <text>{{item.productSubTitle}}</text>
+        </view>
+        <view class='price'>
+          <text>￥<text>{{item.productPrice}}</text></text>
+           <text >立即抢购</text>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view wx:else class="loadmore">没有更多了</view>

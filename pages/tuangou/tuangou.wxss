@@ -1,0 +1,322 @@
+.ins{
+  padding-left:38rpx; 
+  font-size:24rpx;
+  color:#666; 
+  margin-top:20rpx; 
+  line-height:48rpx; 
+  letter-spacing:1rpx;
+}
+
+.slides {
+	height: 400rpx;
+}
+
+.slides image {
+	width: 100%;
+	height: 100%;
+}
+
+
+.store{
+  margin: 0rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.store .store_pro{
+  display: flex;
+  flex-direction: column;
+}
+.store .store_pro .name{
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+  margin-top: 30rpx;
+}
+.store .store_pro .youhui{
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 15rpx;
+}
+.store .store_pro .tips{
+  margin-top: 26rpx;
+  font-size: 20rpx;
+  color: #00aaff;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-bottom: 5rpx;
+  padding-top: 5rpx;
+  width:466rpx;
+}
+.store .store_pro .tips text{
+  padding: 2rpx 10rpx;
+  border: 1rpx solid #00aaff;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.address .add_two{
+  width: 602rpx;
+}
+.address .dizhi{
+  width: 25rpx;
+  height: 32rpx;
+  padding: 34rpx 20rpx;
+}
+.address .address_map{
+  font-size: 28rpx;
+  color: #333;
+  position: absolute;
+  top: 34rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:522rpx;
+}
+.address .call{
+  width: 146rpx;
+  height: 75rpx;
+  position: absolute;
+  right: 0;
+  border-left: 1rpx solid #f5f5f5;
+}
+.address .call image{
+  width: 50rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 14rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tab_header{
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  background-color: #f5f5f5;
+  line-height: 80rpx;
+}
+.tab_header text{
+  display: inline-block;
+  width: 33.33%;
+  border-bottom: 5rpx solid #f5f5f5;
+}
+.tab_header text.active{
+  border-bottom: 5rpx solid #7ec052;
+}
+
+.group_detail{
+  margin: 0 20rpx;
+}
+.combo{
+  display: block;
+  padding: 24rpx 38rpx;
+  font-size: 24rpx;
+  color: #333;
+  border-bottom: 3rpx solid #f5f5f5;
+}
+.group_detail .details{
+  display: flex;
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 20rpx;
+  padding-left: 38rpx;
+  position: relative;
+}
+.group_detail .details .details_num{
+  position: absolute;
+  right: 222rpx;
+}
+.group_detail .details .details_price{
+  position: absolute;
+  right: 38rpx;
+}
+.group_detail .sum_price,
+.group_detail .group_price{
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+  text-align: right;
+  padding-right: 36rpx;
+  margin-top: 10rpx;
+}
+.group_detail .group_price{
+  margin-bottom: 15rpx;
+}
+.group_detail .group_price text{
+  font-size: 30rpx;
+  color: red;
+}
+
+.look{
+  width: 100%;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #7ec052;
+}
+.bg{
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.buy_knows{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+  padding-bottom: 48rpx;
+}
+.buy_knows text{
+  font-size: 24rpx;
+  margin-top:10rpx;
+  padding-left: 38rpx;
+}
+.buy_knows .qi{
+  color: red;
+}
+
+.comment{
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment .com_detail{
+  margin-top: 20rpx;
+}
+.comment .com_detail image{
+  width: 108rpx;
+  height: 108rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+.comment .com_detail image.mL12{
+  margin-right: 12rpx;
+}
+.comment .com_detail .de_content{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.comment .com_detail .de_content .name{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.comment .com_detail .de_content .mark{
+  width: 100%;
+  height: 50rpx;
+}
+.comment .com_detail .de_content .mark text{
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  float: left;
+  margin-right: 15rpx;
+}
+.comment .com_detail .de_content .mark image{
+  width: 26rpx;
+  height: 26rpx;
+  padding: 11rpx 0;
+  margin-right: 2rpx;
+}
+.comment .com_detail .de_content .contents{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden; 
+/* 通过以上四行实现收缩功能 */
+}
+.comment .com_detail .de_content .quanwen{
+  font-size: 24rpx;
+  color: #7ec052;
+  padding: 20rpx 0;
+}
+.comment .com_detail .de_content .ceji image{
+  width: 138rpx;
+  height: 138rpx;
+}
+.comment .com_detail .de_content .liulan{
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+  padding: 20rpx 0;
+}
+.comment .loadmore{
+  padding: 30rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #7ec052;
+}
+.buy{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #f5f5f5;
+  background-color: white;
+}
+.buy .dingjing{
+  font-size: 24rpx;
+  position: absolute;
+  right: 230rpx;
+}
+.buy .dingjing text{
+  color: #ff1919;
+}
+.buy .dingjing text text{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.buy .yuding{
+  width: 190rpx;
+  height: 96rpx;
+  background-color: #ff1919;
+  line-height: 96rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  right: 0;
+}
+
+.buy .yuding1{
+  background-color: #cccccc;
+}
+
+.ellipsis{
+-webkit-line-clamp:3;
+/* 显示3行 */
+}
+
+.unellipsis{
+-webkit-line-clamp:0;/* 全部显示 */
+}
+
+.pro_detail{
+  padding-bottom: 36rpx;
+}
+.pro_items{
+  display: flex;
+  flex-direction: column;
+}
+
+.pro_items image{
+  padding: 0 20rpx;
+  width: 710rpx;
+  height: 401rpx;
+}
+.pro_items text{
+  font-size: 24rpx;
+  color: #333;
+  padding: 27rpx 20rpx;
+}

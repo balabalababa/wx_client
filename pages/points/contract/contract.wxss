@@ -1,0 +1,38 @@
+.container{
+  padding:40rpx;
+}
+.contract-pic{
+  border:1px solid #ccc;
+  text-align: center;
+  background:#ccc;
+  padding:30rpx 0;
+   font-size:30rpx;
+}
+.chose{
+  position:relative;
+}
+.contract-pic .camera{
+  position: absolute;
+  top:25%;
+  left:50%;
+  height:60rpx;
+  width:60rpx;
+  margin: -30rpx;
+}
+.contract-pic image{
+border:1px solid #ccc;
+width:100%;
+}
+
+
+button{
+margin:40rpx 0;
+background:green;
+color:#fff;
+}
+.tips{
+  font-size:30rpx;
+}
+.tips view{
+  margin:20rpx 0;
+}

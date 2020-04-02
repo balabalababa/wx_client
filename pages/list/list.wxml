@@ -1,0 +1,23 @@
+<view wx:if="{{totalCount}}">
+  <view class='cells'>
+    
+    <navigator class='item' wx:for='{{shops}}' wx:key='{{brandID}}' url='/pages/brand/brand?brandid={{item.brandID}}'>
+        <image src='{{item.brandImageList[0]}}' mode='aspectFill'/>
+        <view class="meta">
+          <text class="name">{{item.brandName}}</text>
+          <text class="youhui">{{item.brandSubtitle}}</text>
+          <view class='tips'>
+              <text wx:key="id" wx:for="{{item.brandTagList}}" wx:for-item="item">{{item}}</text>
+          </view>
+          <text class="money">￥<text>{{item.brandLowestPrice}}</text>起</text>
+          <!-- <text class="money">全款<text>{{item.brandLowestPrice}}</text></text> -->
+        </view>
+        <!-- <view class="address">{{item.brandLocation}}</view> -->
+    </navigator>
+  </view>
+
+  <view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+  <view wx:else class="loadmore">没有更多了</view>
+</view>
+
+<view class="loadmore" wx:else>暂无产品，敬请期待</view>

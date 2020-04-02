@@ -1,0 +1,41 @@
+<view>
+  <navigator class="box" url="/pages/points/contract/contract">
+    <view class="box-left">
+      <image src='/assets/points/contract-home.jpg'></image>
+      <view class="text">
+        <view class="title">上传成交合同</view>
+        <view>上传正确并且清晰的合同图片，完成订单成交认证</view>
+        <view style="text-align:right">{{count+567}}人参加</view>
+      </view>
+    </view>
+    <view class="box-right">去完成</view>
+  </navigator>
+</view>
+
+<navigator class='btn' url="/pages/points/rules/rules">
+  <image src='/assets/points/contract-point.jpg' />点击查看积分秘籍
+</navigator>
+
+<view class="contractList">
+  <view class="item" wx:for="{{list}}" wx:key='{{index}}'>
+    <view class="left" bindtap="clickImage" data-image="{{item.contractImg}}">
+      <image src="{{item.contractImg}}"></image>
+    </view>
+    <view class="right">
+      <view class="status wait" wx:if="{{item.auditStatus==1}}">正在审核中，请耐心等待</view>
+      <view class="status yes" wx:if="{{item.auditStatus==2}}">已通过</view>
+      <view class="status fail" wx:if="{{item.auditStatus==3}}">未通过，原因：{{item.contractNote}}</view>
+      <view class="time">{{item.createTime}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="showBox" wx:if="{{showFlag}}">
+  <view class="showBack"></view>
+  <view class="close" bindtap="clodeShow">
+    <image src='/assets/err.png'></image>
+  </view>
+  <view class="showImage">
+    <image src='{{imageUrl}}' mode='widthFix'></image> 
+  </view>
+</view>

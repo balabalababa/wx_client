@@ -1,0 +1,84 @@
+<view class='my_header'>
+	<view class='headView'>
+		<open-data class="icon" mode="aspectFit" type="userAvatarUrl"></open-data>
+		<view class='icon'></view>
+	</view>
+	<open-data class="name" type="userNickName"></open-data>
+</view>
+
+<view class='my_content'>
+	<view class="yangshi">
+		<view class='my_li' style="margin:0 15px">
+			<text style="font-size:34rpx;color:#000;">全部订单</text>
+			<navigator bindtap='shouquan' url='/pages/order/order' class="jiantou" style='font-size:13px;color:#808080'>
+				查看全部订单
+				<image src='../../assets/jiantou.png' />
+			</navigator>
+		</view>
+		<view class="yangshi" style="margin:0 15px 10px">
+			<view class='li'>
+				<navigator class="branch" url='/pages/order/order?num=1'>
+					<image src='../../assets/paying.jpg'></image>
+					<text>待付款</text>
+					<text class="total" wx:if="{{unpaynum}}">{{unpaynum}}</text>
+				</navigator>
+				<navigator class="branch" url='/pages/order/order?num=2'>
+					<image src='../../assets/another.jpg'></image>
+					<text>待转单</text>
+					<text class="total" wx:if="{{gousenum}}">{{gousenum}}</text>
+				</navigator>
+				<navigator class="branch" url='/pages/order/order?num=3'>
+					<image src='../../assets/range.jpg'></image>
+					<text>待评价</text>
+					<text class="total" wx:if="{{commentnum}}">{{commentnum}}</text>
+				</navigator>
+			</view>
+		</view>
+	</view>
+	<view class="yangshi">
+		<navigator class='my_li' url='/pages/addrList/addrList?openid={{openid}}'>
+			<text>我的地址</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view>
+		</navigator>
+	</view>
+	<view class="yangshi">
+		<navigator class='my_li' url='/pages/infoJoin/index'>
+			<text>报名信息</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view>
+		</navigator>
+	</view>
+	<view class="yangshi">
+		<navigator class='my_li' url='/pages/myCard/myCard?openid={{openid}}'>
+			<text>我的抵用券</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view>
+		</navigator>
+	</view>
+	<view class="yangshi">
+		<navigator class='my_li' url='/pages/points/points'>
+			<text>我的积分</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view>
+		</navigator>
+	</view>
+	<view class="yangshi" wx:if="{{showFlag}}">
+		<navigator class='my_li' url='/packageA/pages/home/home'>
+			<text>直播回放</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view>
+		</navigator>
+	</view>
+	<view class="yangshi">
+		<button open-type="contact" class='my_li' style="border:none"><text>联系客服</text>
+			<view class="jiantou">
+				<image src='../../assets/jiantou.png' />
+			</view></button>
+	</view>
+</view>

@@ -1,0 +1,17 @@
+<view class="vouchers">
+<image src='../../assets/voucherImg.png'></image>
+<text class='money'>￥<text class='FS30'>10</text></text>
+<text class='name'>【新用户专享】全品类抵用券</text>
+<text class='time'>有效期：2018.08.01-2018.08.03</text>
+<text class='lasttime'>还有2天过期</text>
+<text class='instructions'>· 订金满100元可用，限最新版本客户端使用</text>
+</view>
+
+<view class="vouchers">
+<image src='../../assets/voucherImg.png'></image>
+<text class='money color_gray'>￥<text class='FS30'>5</text></text>
+<text class='name color_gray'>【西门子开关】全品类抵用券</text>
+<text class='time color_gray'>有效期：2018.07.01-2018.07.31</text>
+<text class='lasttime color_gray'>已过期</text>
+<text class='instructions color_gray'>· 订金满100元可用，限最新版本客户端使用</text>
+</view>

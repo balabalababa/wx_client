@@ -1,0 +1,48 @@
+<scroll-view scroll-y="true" style="height:60rem">
+<block wx:if="{{being==true}}">
+  <view class="head">
+    <view>
+      <image src="../../assets/address.jpg" class="address"></image>我的地址</view>
+    <view>
+      <image src="../../assets/recover.jpg"></image>
+      <text bindtap="dete">{{dete?'取消':'删除地址'}}</text>
+    </view>
+  </view>
+</block>
+<block wx:else>
+<view >
+  <image src="../../assets/addaddr.jpg" class="addpic" ></image>
+  </view>
+</block>
+
+<view class="container">
+  <radio-group name="radio-group">
+    <view class="addr" wx:for="{{addrList}}" wx:key="{{index}}" data-addressId='{{item.addressId}}' data-index='{{index}}' bindtap="bind">
+      <view  data-addressId='{{item.addressId}}'style="flex:1" bindtap="return" >
+        <view class="title">{{item.addressContent[3]}}
+          <text class="tag">{{item.addressTag}}</text>
+        </view>
+        <view class="detail">{{item.addressContent[0]}}{{item.addressContent[1]}}{{item.addressContent[2]}}</view>
+        <view class="person">{{item.userName}} | {{item.userPhone}}</view>
+      </view>
+      <view class="appli">
+        <navigator class='my_li' url='/pages/newAddr/newAddr?addressId={{item.addressId}}'>
+          <image src="../../assets/edit.jpg" wx:if="{{!dete}}"></image>
+        </navigator>
+        <block wx:if="{{dete}}">
+          <text wx:if="{{!item.selStatu}}"></text>
+          <image src="../../assets/selet.jpg" wx:if="{{item.selStatu}}"></image>
+        </block>
+
+      </view>
+    </view>
+  </radio-group>
+</view>
+
+<view class="foot">
+  <navigator class='my_li' url='/pages/newAddr/newAddr?openid={{openId}}&&addressId=f'>
+    <button wx:if="{{!dete}}">添加新地址</button>
+  </navigator>
+  <button wx:if="{{dete}}" bindtap="delItem">删除地址</button>
+</view>
+</scroll-view>

@@ -1,0 +1,8 @@
+<text class='hot'>热门城市</text>
+<view class='city'>
+  <view class='bsh' id='1' data-text="北京" bindtap="bindtapFunc">北京</view>
+  <view class='bsh' id='2' data-text="上海" bindtap="bindtapFunc">上海</view>
+  <view class='bsh' id='3' data-text="杭州" bindtap="bindtapFunc">杭州</view>
+  <view class='bsh' id='4' data-text="天津" bindtap="bindtapFunc">天津</view>
+</view>
+<text class='more'>更多城市陆续开放中···</text>

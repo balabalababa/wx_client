@@ -1,0 +1,111 @@
+<swiper class="slides" autoplay="{{brand.brandImageList.length > 1}}" indicator-dots="{{brand.brandImageList.length > 1}}" indicator-color="#bcc0c9" indicator-active-color="#3a4861" circular="true">
+  <block wx:for="{{brand.brandImageList}}" wx:key="id" wx:for-item="item">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class='store'>
+  <view class='store_pro'>
+    <text class='name'>{{brand.brandName}}</text>
+    <text class='youhui'>{{brand.brandSubtitle}}</text>
+    <view class='tips'>
+      <text wx:for="{{brand.brandTagList}}" wx:for-item="item" wx:key="id">{{item}}</text>
+    </view>
+  </view>
+  <view class='store_fen'>
+    <text class='fenshu'>{{brand.brandScore}}分</text>
+    <text class='pinjia'>{{num}}人已评价</text>
+  </view>
+</view>
+
+<!-- <view class='address'>
+  <view class='add_two' bindtap='seeMap'>
+    <image class='dizhi' src='../../assets/location.jpg'/>
+    <text class='address_map'>{{brand.brandAddress}}</text>
+  </view>
+  <view class='call' bindtap='tel'>
+     <image  src='../../assets/call.png'/>
+  </view>
+</view> -->
+<view class='bg'></view>
+
+<view class='cells'>
+  <text class='title'>网站推荐</text>
+  <view wx:for="{{recommend}}" wx:key="id">
+    <view style='position:relative;' wx:if="{{item.productFlag==0}}">
+      <navigator url='/pages/new_product/new_product?id={{item.productID}}&brandid={{item.brandID}}&productFlag={{item.productFlag}}'>
+        <view class='item'>
+          <image src='{{item.productTitleImage[0]}}' mode="aspectFill" />
+          <view class="meta">
+            <text class="name">{{item.productTitle}}</text>
+            <view style="margin-top:6rpx;height:44rpx;">
+              <view wx:if='{{item.productLittleTag}}' class='tips'>{{item.productLittleTag}}</view>
+              <view class="youhui {{item.productLittleTag ? '' : 'active'}}" wx:if='{{item.productSubTitle}}'>{{item.productSubTitle}}</view>
+            </view>
+            <text class="money">团购价<text>￥{{item.productPrice}}</text>
+            <text>{{item.productComPrice}}</text></text>
+            <text class="buy_money"><text>{{item.productPriceDesc}}</text></text>
+          </view>
+          <view class='buy_imme'>马上抢</view>
+        </view>
+      </navigator>
+      <!-- <navigator class='buy_imme' url='/pages/submit/submit?id={{item.productID}}&title={{item.productTitle}}&deposit={{item.productDeposit}}&stock={{item.productStock}}'>立即预定</navigator> -->
+
+    </view>
+  </view>
+</view>
+
+<view class='bg'></view>
+
+<view class='cells'>
+  <text class='title'>现场砍价</text>
+  <view wx:for="{{recommend}}" wx:key="id">
+    <view style='position:relative;' wx:if="{{item.productFlag==1}}">
+      <navigator url='/pages/new_product/new_product?id={{item.productID}}&brandid={{item.brandID}}'>
+        <view class='item'>
+          <image src='{{item.productTitleImage[0]}}' mode="aspectFill" />
+          <view class="meta">
+            <text class="name">{{item.productTitle}}</text>
+            <text class='tips'>补单日</text>
+            <text class="youhui">{{item.productSubTitle}}</text>
+            <text class="money">团购价<text>{{item.productPrice}}</text>
+            <text>{{item.productComPrice}}</text></text>
+            <text class="buy_money"><text>支付{{item.productDeposit}}元，门店转单使用</text></text>
+          </view>
+          <view class='buy_imme'>立即预定</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='bg'></view>
+
+<view class='comment'>
+  <text class='com_num'>网友点评({{num}}条）</text>
+  <navigator class='com_detail' wx:for="{{brand_comments}}" wx:key="id" url='/pages/allComments/allComments?brandid={{brand.brandID}}'>
+    <image src='{{item.user_protrait}}' />
+    <view class='de_content'>
+      <text class='name'>{{item.user_nikename}}</text>
+      <view class='mark'>
+        <text>打分</text>
+        <block wx:for="{{item.appraisal_score}}" wx:key="item">
+          <image src='../../assets/redstar.png'></image>
+        </block>
+        <block wx:for="{{5-item.appraisal_score}}" wx:key="item">
+          <image src='../../assets/graystar.png'></image>
+        </block>
+      </view>
+      <text class="contents {{ellipsis?'ellipsis':'unellipsis'}}">{{item.appraisal_content}}</text>
+      <text class='quanwen' wx:if="{{ellipsis}}">全文</text>
+      <!-- <text class='quanwen' id='{{item.appraisal_id}}' bindtap='ellipsis' wx:else>收起</text> -->
+      <view class='ceji'>
+        <image wx:for="{{item.realAppraisalImage}}" wx:key="id" wx:for-item="image" src='{{image}}' data-src="{{image}}" mode="aspectFill" />
+      </view>
+      <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
+    </view>
+  </navigator>
+  <navigator url='/pages/allComments/allComments?brandid={{brand.brandid}}' class="loadmore">查看全部评价 ></navigator>
+</view>

@@ -1,0 +1,29 @@
+<view class="banner">
+  <image src="{{good.giftImage}}"></image>
+</view>
+<view class="good-name">
+  <view class="title">【限量兑换】{{good.giftName}}</view>
+  <view class="text">
+    <image src='/assets/points/good-point.jpg'></image>{{good.giftPoint}}积分</view>
+</view>
+<view class="bg"></view>
+<view class="distro">
+  <view class="dis-title">奖品说明：</view>
+  <view>
+    <view class="name">
+      <view class="title">【商品名称】{{good.giftName}}</view>
+      <view wx:for="{{good.giftNote}}" wx:key="{{index}}">
+        {{item}}
+      </view>
+    </view>
+    <view class="specil">
+      <view>【特别说明】</view>
+
+      <view wx:for="{{good. specialNote}}" wx:key="{{index}}">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="btn" bindtap="redoom">立即兑换</view>

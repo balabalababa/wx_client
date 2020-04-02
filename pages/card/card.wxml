@@ -1,0 +1,17 @@
+<!--pages/card/card.wxml-->
+<view class="cards">
+  <view class="{{item.time==2?'card':'card-1'}}"  wx:for="{{cardList}}"  bindtap='return'  data-time="{{item.time}}"data-index="{{index}}" wx:for-index="index">
+   <view class="card-main" data-time="{{item.time}}"data-index="{{index}}" wx:for-index="index">
+      <view  class="{{item.time==2?'card-money':'card-money1'}}">￥<text class="money">{{item.voucherValue/100}}</text></view>
+      <view class="card-msg">
+      <text class="card-title">{{item.voucherTitle}}</text>
+      <text class="card-time"> 有效期：{{item.startTime}}-{{item.stopTime}}</text>
+      <text class="card-and" wx-if="{{item.time==0}}"> 还有{{item.moretime}}天过期</text>
+      <text class="card-and1" wx-if="{{item.time==1}}"> 已过期</text>
+      </view>
+    </view>
+    <view class="{{item.time?'card-foot':'card-foot1'}}">·付款满{{item.voucherDepositLimit/100}}元可用</view>
+  </view>
+
+</view>
+

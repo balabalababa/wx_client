@@ -1,0 +1,34 @@
+<view class="record-head">
+  <view>积分数量</view>
+  <view class="head_text">{{points}}</view>
+  <view class="date"> <view>积分将于{{day}}到期</view> <navigator url="/pages/points/task/task">快去赚积分吧》</navigator></view>
+
+</view>
+<view class="tab">
+  <view wx:for="{{nav}}" wx:key="{{index}}" catchtap="tabClick" data-index="{{index}}" class="{{currentIndex==index?'color':''}}">
+    <image src="{{currentIndex==index?item.imgact:item.imgsrc}}"></image>
+    {{item.text}}</view>
+</view>
+<!-- 记录 -->
+<view class="itemgroup" wx:if="{{currentIndex==0}}">
+  <view class="item" wx:for="{{recordList}}" wx:key="{{index}}">
+    <view class="item-left">
+      <view class="item-title">{{item.detail}}</view>
+      <view class="time">{{item.createTime}}</view>
+    </view>
+    <view class="{{item.point>0?'item-gre':'item-org'}}">
+      {{item.point}}积分</view>
+  </view>
+</view>
+<!-- 奖品 -->
+<view class="itemgroup" wx:if="{{currentIndex==1}}">
+  <navigator class="prize" wx:for="{{giftList}}" wx:key="{{index}}" wx:if="{{item.giftName}}" url="/pages/points/deliveryAddress/deliveryAddress?item={{item.total}}">
+    <view class="prize-main">
+      <view class="name">{{item.giftName}}</view>
+      <view class="point">
+        <image src='/assets/points/record-point.jpg'></image>{{item.point}}积分
+      </view>
+    </view>
+    <image wx:if="{{item.getStatus==2||item.getStatus==5}}" src="/assets/over.png"></image>
+  </navigator>
+</view>

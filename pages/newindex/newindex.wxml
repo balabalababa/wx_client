@@ -1,0 +1,99 @@
+<view class='header'>
+  <navigator class='address' url='/pages/choose/choose'>
+    <image src='/assets/location.jpg' mode="aspectFill" />
+    <text>{{cityText}}</text>
+  </navigator>
+  <view class='search'>
+    <icon type='search' size='15' />
+    <input placeholder="搜索品牌" type="text" bindinput='inputText' bindconfirm='searchDetail' />
+  </view>
+  <!-- <text bindtap='searchDetail'>搜索</text> -->
+</view>
+
+
+<swiper class="slides" autoplay="{{imgUrls.length > 1}}" indicator-dots="{{imgUrls.length > 1}}" indicator-color="#bcc0c9" indicator-active-color="#3a4861" circular="true">
+  <swiper-item wx:for="{{imgUrls}}" wx:key="id">
+    <navigator wx:if="{{item.url}}" url="{{item.url}}">
+      <image src="{{item.img}}" mode="aspectFill" />
+    </navigator>
+    <image wx:else src="{{item.img}}" mode="aspectFill" />
+  </swiper-item>
+</swiper>
+
+<view class='grids'>
+  <navigator class='item'>
+    <image src='/assets/icons/grid_01.png' />
+    <text>限时秒杀</text>
+  </navigator>
+  <navigator class='item'>
+    <image src='/assets/icons/grid_02.png' />
+    <text>多人拼团</text>
+  </navigator>
+  <navigator class='item'>
+    <image src='/assets/icons/grid_03.png' />
+    <text>抵用券</text>
+  </navigator>
+</view>
+<view class="show_pic">
+  <view class="show_pic_1">
+    <image src='{{item.productTitleImg[0]}}' class="show_pic_left"></image>
+    <view class="show_pic_right">
+      <image src='{{item.productTitleImg[0]}}'></image>
+      <image src='{{item.productTitleImg[0]}}'></image>
+    </view>
+  </view>
+  <view class="show_pic_2">
+    <image src='{{item.productTitleImg[0]}}'></image>
+  </view>
+</view>
+<block>
+  <view class='cells'>
+    <view class='title'>
+      <view class='bg'></view>
+      <text class="title_1">网站推荐</text> </view>
+    <view class="pro_box">
+      <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+        <navigator class="box" wx:for="{{shops}}" wx:key="{{brandID}}" wx:if="{{item.model_type == 0}}">
+          <image src='{{item.titleimage[0]}}' mode="aspectFill" />
+          <text style="display:block;">{{item.title}}</text>
+          <view class='info'>
+            <text class='tag' wx-if='{{flag}}'>{{item.little_tag}}</text>
+            <text>{{item.subtitle}}</text>
+          </view>
+          <view class='price'>
+            <text>￥<text>{{item.price}}</text></text>
+            <text class="last">立即抢购</text>
+          </view>
+        </navigator>
+      </scroll-view>
+    </view>
+  </view>
+</block>
+<block>
+  <view class='cells'>
+
+    <view class='title'>
+      <view class='bg'></view>
+      <text class="title_1">网站推荐</text> </view>
+    <view class="pro_box1">
+      <navigator class="box1" wx:for="{{shops}}" wx:key="{{brandID}}"wx:if="{{item.model_type == 2}}">
+        <image src='{{item.titleimage[0]}}' mode="aspectFill" />
+        <view class="dec1">
+          <text>{{item.title}}</text>
+          <view class='info1'>
+            <text>{{item.subtitle}}</text>
+          </view>
+          <view class='price1'>
+            <text>￥<text>{{item.price}}</text></text>
+            <view class="oldprice">￥{{item.comprice}}
+              <text  class="stre"></text>
+            </view>
+            <text class="last1">立即抢购</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</block>
+<view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view wx:else class="loadmore">没有更多了</view>

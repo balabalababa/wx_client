@@ -1,0 +1,58 @@
+<swiper  autoplay="true" interval="2000" duration="500" circular="true">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style="height:100%" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="head_nav">
+  <view class="navitem" bindtap="clicknav">
+    <view>
+      <image src='/assets/points/index_point.jpg' />积分
+      <span>{{points}}</span>
+    </view>
+  </view>
+  <view class="navitem" bindtap="clicknav"data-link='/pages/points/record/record'>
+    <view >
+      <image src='/assets/points/index_record.jpg' />兑换记录</view>
+  </view>
+  <view class="navitem" bindtap="clicknav" data-link="/pages/points/task/task">
+    <view >
+      <image src='/assets/points/index_get.jpg' />赚取积分</view>
+  </view>
+
+</view>
+<view class='bg'></view>
+<!-- 热门商品 -->
+  <scroll-view class="hot" scroll-x="true">
+    <navigator class="hot_item" url="/pages/points/pointDetail/pointDetail?item={{item.total}}&&point={{points}}"  wx:for="{{hotGoods}}" wx:key="{{index}}" wx:if="{{index<5}}">
+      <view class="title">{{item.giftName}}</view>
+      <view class="hot_item_point">
+        <text>{{item.giftPoint}}</text>积分</view>
+      <image src="{{item.giftImage}}" />
+      <view class="hot_sign">热</view>
+    </navigator>
+  </scroll-view>
+
+
+<view class='bg'></view>
+<!-- 换东西 -->
+<view class="duihuan_nav">
+  <view wx:for="{{nav}}" wx:key="{{index}}" bindtap="tabClick" data-index="{{index}}" class="{{index==curnavIndex?'nav_item':''}}">{{item}}
+  </view>
+</view>
+<!-- 内容 -->
+<view class="good_group" >
+  <navigator class="good_item" wx:for="{{showGood}}" wx:key="{{index}}" url="/pages/points/pointDetail/pointDetail?item={{item.total}}&&point={{points}}">
+    <view class="item_pic">
+      <image src="{{item.giftImage}}" />
+    </view>
+    <view class="good_title">{{item.giftName}}</view>
+    <view class="good_text">
+      <span>{{item.giftPoint}}</span>积分
+    </view>
+    <view class="good_sign">
+      {{item.giftType}}
+    </view>
+  </navigator>
+</view>

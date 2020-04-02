@@ -1,0 +1,103 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  height: 100rpx;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.status {
+  border-top: 10rpx solid #ccc;
+  padding: 40rpx 20rpx;
+  background: #fff6ee;
+}
+.nowGet{
+ display: flex;
+justify-content: space-between;
+}
+.status .get {
+ font-size: 36rpx;
+  background: #ff8600;
+  padding: 10rpx;
+  color:#fff;
+  border-radius:5rpx;
+  width: 120rpx;
+  text-align: center;
+}
+.good-status {
+  font-size: 36rpx;
+  color: #ff8600;
+  padding-bottom: 20rpx;
+}
+.color{
+  color:#000;
+}
+.delivery-status {
+  font-size: 26rpx;
+  color: #999691;
+}
+
+.address {
+  height: 200rpx;
+  padding: 28rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 20rpx solid #ccc;
+}
+
+.adr-title {
+  color: #999691;
+  font-size: 28rpx;
+}
+
+.addrDetail {
+  width: 420rpx;
+  font-size: 28rpx;
+}
+
+.goodInfo {
+  padding: 50rpx 0;
+  height: 118rpx;
+}
+
+.goodInfo image {
+  height: 118rpx;
+  width: 240rpx;
+}
+
+.good {
+  width: 420rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.good-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.good_news {
+  color: #ff8600;
+  display: flex;
+  align-items: center;
+}
+
+.good_news image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.serve {
+  margin: 0 20rpx;
+}
+.serve image{
+  width:20rpx;
+  height:20rpx;
+}
+.serve .tel{
+  margin-right:10rpx;
+}

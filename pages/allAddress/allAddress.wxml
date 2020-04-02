@@ -1,0 +1,18 @@
+<view class='address' wx:for='{{storts_information}}' wx:key='id'>
+  <view class='head'>
+    <text>{{item.storeName}}</text>
+    <text>{{item.storeProvince+item.storeCity+item.storeArea+item.storeAddress}}</text>
+  </view>
+  <view class='content'>
+    <view class='map' bindtap='seeMap' data-address='{{item.storeProvince+item.storeCity+item.storeArea+item.storeAddress}}'>
+      <image src='../../assets/map_icon.jpg'/>
+      <text>地图</text>
+    </view>
+    <view class='phone' bindtap='tel'>
+      <image src='../../assets/phone_icon.jpg'/>
+      <text>客服</text>
+    </view>
+  </view>
+</view>
+
+

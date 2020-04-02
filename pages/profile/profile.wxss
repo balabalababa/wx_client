@@ -1,0 +1,129 @@
+/* pages/profile/profile.wxss */
+
+page {
+  background-color: #f5f5f5;
+}
+
+.my_header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 389rpx;
+  background-color: #f8f8f8;
+}
+
+.my_header image {
+  padding-top: 54rpx;
+  width: 169rpx;
+  height: 169rpx;
+  padding-left: 292rpx;
+}
+
+.my_header text {
+  margin-top: 26rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.my_content {
+  margin-top: 10rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.my_li {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  margin: 0 15px;
+  padding:0;
+  justify-content: space-between;
+  border-bottom:1px solid #e8e8e8;
+}
+.yangshi button::after{
+  border:none;
+}
+.my_li image:first-of-type {
+  margin: 28rpx 20rpx;
+  width: 36rpx;
+  height: 31rpx;
+}
+
+.branch {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20rpx 0;
+  position:relative;
+}
+
+.branch image:first-of-type {
+  width: 62rpx;
+  height: 52rpx;
+  margin: 10rpx 0;
+}
+
+.branch text {
+  font-size: 28rpx;
+}
+
+.my_li .jiantou {
+  display: flex;
+  align-items: center;
+}
+
+.my_li text {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.my_li image:last-of-type {
+  width: 13rpx;
+  height: 27rpx;
+}
+.yangshi{
+  background-color:white;
+}
+.li {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+.branch text{
+  color:#082e1a;
+}
+.branch .total {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: #ff4d0d;
+  font-size: 22rpx;
+  color: #fff;
+  right: -16rpx;
+  top: 0;
+  text-align:center;
+}
+
+.headView {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50rpx;
+  height: 278rpx;
+  width: 750rpx;
+  position: relative;
+  border: 0;
+}
+
+.headView .icon {
+  position: absolute;
+  height: 180rpx;
+  width: 180rpx;
+  border-radius: 50%;
+  border: 38rpx solid #f8f8f8;
+}
+
+.my_header .name {
+  margin-top: -26rpx;
+}

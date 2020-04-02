@@ -1,0 +1,315 @@
+
+.slides {
+	height: 580rpx;
+}
+
+.slides image {
+	width: 100%;
+	height: 100%;
+}
+.store{
+  display: flex;
+  margin: 0rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  position: relative;
+}
+.store .store_pro{
+  display: flex;
+  flex-direction: column;
+}
+.store .store_pro .name{
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+  margin-top: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.store .store_pro .youhui{
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 15rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:582rpx;
+}
+
+
+.store .store_pro .tips{
+  margin-top: 26rpx;
+  font-size: 20rpx;
+  color: #00aaff;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding-top:5rpx;
+  padding-bottom: 5rpx;
+  width:466rpx;
+}
+.store .store_pro .tips text{
+  padding: 2rpx 10rpx;
+  border: 1rpx solid #00aaff;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+}
+.store .store_fen{
+  display: flex;
+  flex-direction: column;
+  margin-top:30rpx;
+}
+.store .store_fen .fenshu{
+  /* position: absolute; */
+  /* right: 26rpx; */
+  font-size: 40rpx;
+  color: #ff1919;
+  /* top: 64rpx; */
+  font-weight: bold;
+}
+.store .store_fen .pinjia{
+  font-size: 22rpx;
+  color: #999;
+  /* position: absolute; */
+  /* right: 0; */
+  /* bottom: 55rpx; */
+  margin-top:40rpx;
+}
+.address {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.address .add_two{
+  width: 602rpx;
+}
+.address .dizhi{
+  width: 25rpx;
+  height: 32rpx;
+  padding: 34rpx 20rpx;
+}
+.address .address_map{
+  font-size: 28rpx;
+  color: #333;
+  position: absolute;
+  top: 34rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:522rpx;
+}
+.address .call{
+  width: 146rpx;
+  height: 75rpx;
+  position: absolute;
+  right: 0;
+  border-left: 1rpx solid #f5f5f5;
+}
+.address .call image{
+  width: 50rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 14rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg{
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.cells{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 20rpx;
+}
+
+.cells .title{
+  font-size: 40rpx;
+  line-height: 108rpx;
+  text-align: center;
+  color: #7ec052;
+  height: 108rpx;
+  font-weight: bold;
+}
+.cells .item{
+  display: flex;
+  border-top: 1rpx solid #eee;
+  position: relative;
+  background-color: #fff;
+}
+.cells .item image{
+  width: 236rpx;
+  height: 236rpx;
+  margin: 26rpx 0rpx;
+  margin-right: 28rpx;
+}
+.cells .item .meta{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  padding-top: 25rpx;
+  width: 416rpx;
+}
+.cells .item .meta .name {
+  color: #000;
+  font-size: 34rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cells .item .meta .youhui {
+  color: #808080;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 95rpx;
+  margin-top: 8rpx;
+}
+
+.cells .item .meta .active{
+  padding-left: 0;
+}
+.cells .item .meta .tips{
+  font-size: 20rpx;
+  color: #ff1919;
+  padding: 0 10rpx;
+  border: 1px solid #ff1919;
+  border-radius: 8rpx;
+  position: absolute;
+  top: 82rpx;
+}
+
+.cells .item .meta .money{
+  font-size: 26rpx;
+  color: #808080;
+  margin-top: 40rpx;
+}
+.cells .item .meta .money text:first-of-type{
+  color: #ff1919;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.cells .item .meta .money text:last-of-type{
+  text-decoration:line-through;
+  margin-left: 10rpx;
+}
+
+.cells .item .buy_money{
+  width: 100%;
+  font-size: 20rpx;
+  color: #ff1919;
+  margin-top: 6rpx;
+}
+.cells .item .buy_money text{
+  display: block;
+  width: 290rpx;
+  padding: 9rpx 0rpx;
+  background-color: #ffe8e8;
+  border: 1rpx solid #fed3d3;
+  border-radius: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+.cells .buy_imme{
+  position: absolute;
+  right: 0;
+  bottom: 34rpx;
+  font-size: 26rpx;
+  padding: 12rpx 20rpx;
+  background-color: #ff1919;
+  border-radius: 10rpx;
+  color: white;
+}
+.comment{
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.comment .com_num{
+  padding: 30rpx 0 10rpx 0;
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+}
+.comment .com_detail{
+  margin-top: 20rpx;
+}
+.comment .com_detail image{
+  width: 108rpx;
+  height: 108rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+.comment .com_detail .de_content{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.comment .com_detail .de_content .name{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.comment .com_detail .de_content .mark{
+  width: 100%;
+  height: 50rpx;
+}
+.comment .com_detail .de_content .mark text{
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  float: left;
+  margin-right: 15rpx;
+}
+.comment .com_detail .de_content .mark image{
+  width: 26rpx;
+  height: 26rpx;
+  padding: 11rpx 0;
+  margin-right: 2rpx;
+}
+.comment .com_detail .de_content .contents{
+  font-size: 28rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden; 
+/* 通过以上四行实现收缩功能 */
+}
+.comment .com_detail .de_content .quanwen{
+  font-size: 24rpx;
+  color: #7ec052;
+  padding: 20rpx 0;
+}
+
+.comment .com_detail .de_content .ceji image{
+  width: 138rpx;
+  height: 138rpx;
+}
+.comment .com_detail .de_content .liulan{
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+  padding: 20rpx 0;
+}
+.comment .loadmore{
+  padding: 30rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #7ec052;
+}
+
+.ellipsis{
+-webkit-line-clamp:3;
+/* 显示3行 */
+}
+
+.unellipsis{
+-webkit-line-clamp:0;/* 全部显示 */
+}

@@ -1,0 +1,18 @@
+<view class="page-section">
+  <view class="item_box title">绑定下单手机号，查询积分</view>
+  <view class="box">
+    <view class="item_box" style="border-color:green">
+      <view class="text">手机号码</view>
+      <input class="weui-input" type="number" placeholder="输入下单手机号"  bindinput="bindKeyInput"/>
+      <view class="code"bindtap="test" wx:if="{{!showTime}}">获取验证码</view>
+      <view class="code" wx:if="{{showTime}}">{{nowTime}}秒</view>
+    </view>
+    <view class="item_box">
+      <view class="text">验证码</view>
+      <input class="weui-input" type="number" placeholder="验证码" value="{{code}}"bindinput="bindKeyInput1" />
+    </view>
+  </view>
+</view>
+<view class="sub">
+  <button bindtap="login">提交</button>
+</view>

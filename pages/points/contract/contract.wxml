@@ -1,0 +1,18 @@
+<view class="container">
+<view class="contract-pic">
+<view bindtap="chooseImage" class="choose">
+
+<image class="camera" src="/assets/camera.png" wx:if="{{!imgUrl}}"></image>
+
+<image src="{{imgUrl}}"></image></view>
+
+拍摄/选取照片 上传成交合同
+<view class="text"></view>
+</view>
+<button bindtap="upload">提交</button>
+<view class="tips">
+温馨提示：
+<view>1.一次上传一份合同</view>
+<view>2.照片要求内容完整、清晰</view>
+</view>
+</view>

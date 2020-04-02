@@ -1,0 +1,102 @@
+.record-head{
+  height:200rpx;
+  background-color:orange;
+  color:#fff;
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  font-size:25rpx;
+}
+.head_text{
+  font-size:50rpx;
+}
+.record-head navigator{
+  text-align: right;
+}
+.date{
+  display: flex;
+  padding:0 10rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.tab{
+  display: flex;
+  align-items: center;
+  margin:20rpx 0;
+}
+.tab image{
+  display: inline-block;
+  width:40rpx;
+  height:40rpx;
+  margin-right:10rpx;
+}
+.tab view{
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right:1px solid #ccc;
+}
+.tab .color{
+  color:orange;
+}
+.itemgroup{
+  border-top:1px solid #ccc;
+}
+
+.item{
+  margin:0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10rpx 0;
+  border-bottom: 1px solid #ccc;
+
+}
+.item .time{
+  font-size:25rpx;
+  color:#ccc;
+}
+.item .item-org{
+  color:orange;
+}
+.item .item-gre{
+  color:green;
+}
+
+.prize{
+  margin:0 20rpx;
+  border-bottom:1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10rpx 0;
+}
+.prize>image{
+  width:160rpx;
+  height:70rpx;
+  margin-right:20rpx;
+}
+.prize-main{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:100rpx;
+}
+.prize-main .name{
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.point image{
+  width:40rpx;
+  height:40rpx;
+  margin-right:10rpx;
+}
+.point{
+  display: flex;
+  align-items: center;
+  color:orange;
+  font-size:30rpx;
+}

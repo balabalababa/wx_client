@@ -1,0 +1,166 @@
+<swiper class="slides" indicator-dots="{{imgUrls.length > 1}}" autoplay="{{imgUrls.length > 1}}" indicator-color="#bcc0c9" indicator-active-color="#3a4861" circular="true">
+  <block wx:for="{{imgUrls}}" wx:key="id" wx:for-item="item">
+    <swiper-item>
+      <image src="{{item}}" mode='aspectFill' />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 门店信息 -->
+<view class='store'>
+  <block wx:if="{{messages.productComPrice!=0}}">
+    <view class='info'>
+      <text>轻松装</text>
+      <text>{{messages.productTitle}}</text>
+    </view>
+    <view class='price_num'>
+      <text class='discount_price'>￥<text>{{messages.productPrice}}</text></text>
+      <text>已抢购{{messages.productSale}}件</text>
+    </view>
+    <text class='market_price'>市场价{{messages.productComPrice}} <text wx:if="{{messages.productPriceSubfix}}">{{messages.productPriceSubfix}}</text></text>
+
+  </block>
+
+</view>
+
+<view class='bg'></view>
+
+<navigator class='address' url='/pages/allAddress/allAddress?brandid={{price[0]}}' wx:if="{{messages.brandStoreList.length>0}}">
+  <text class='same'>门店</text>
+  <text class='describe'>{{messages.brandStoreList[0].storeProvince+messages.brandStoreList[0].storeCity+messages.brandStoreList[0].storeArea+messages.brandStoreList[0].storeAddress}}</text>
+  <text class='store_num'>共{{messages.brandStoreList.length}}个门店 ></text>
+</navigator>
+
+<view data-value='service' bindtap="showModal" class='service'>
+  <text class='same'>服务</text>
+  <text class='describe'>{{tagString? tagString:'无'}}</text>
+  <text class='next'>></text>
+</view>
+<view data-value='type' bindtap="showModal" class='service' wx:if='{{productSpecification.length>0}}'>
+  <text class='same'>选择</text>
+  <text class='describe' wx:if='{{!chooseFlag}}'>请选择商品属性</text>
+  <text class='describe' wx:if='{{chooseFlag}}'>已选择：<text  wx:for="{{list}}" wx:key="id" wx:for-item="item">  {{item.content}}</text></text>
+  <text class='next'>></text>
+</view>
+
+<!--屏幕背景变暗的背景 -->
+<view data-value='service' bindtap="hideModal" class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+<!--服务弹出框 -->
+<view animation="{{animationData}}" class="commodity_attr_box service_box" wx:if="{{showModalStatus}}">
+  <text>服务保障</text>
+  <view class='wrap_scroll'>
+    <view class='lis' wx:for='{{tagArray}}' wx:key='index' wx:for-item="item">
+      <view class='icon'>
+        <text>{{item[2]==3?30:item[2]}}</text>
+      </view>
+      <view class='content'>
+        <text>{{item[0]}}</text>
+        <text>{{item[1]}}</text>
+      </view>
+    </view>
+  </view>
+  <view data-value='service' bindtap='hideModal' class='complete'>完成</view>
+</view>
+<!--屏幕背景变暗的背景 -->
+<view data-value='parameter' bindtap="hideModal" class="commodity_screen" wx:if="{{showModalStatus_pra}}"></view>
+<!--参数弹出框 -->
+<view animation="{{animationData}}" class="commodity_attr_box service_box" wx:if="{{showModalStatus_pra}}">
+  <text>产品参数</text>
+  <view class='wrap_scroll'>
+    <view class='para_lis' wx:for='{{productParame}}' wx:key="id" wx:for-item="item">
+      <text>{{index}}</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+   <view data-value='parameter' bindtap='hideModal' class='complete'>完成</view>
+</view>
+<!--屏幕背景变暗的背景 -->
+<view data-value='type' bindtap="hideModal" class="commodity_screen" wx:if="{{showModalStatus_type}}"></view>
+<!--型号弹出框 -->
+<view animation="{{animationData}}" class="commodity_attr_box service_box" wx:if="{{showModalStatus_type}}">
+  <view class='wrap_scroll'>
+    <view class="showPic">
+      <view>
+        <image src="{{imgUrl}}"></image>
+      </view>
+
+      <view class='showCh'>
+        <text class='price'>￥{{messages.productPrice}}</text>
+        <text style="color:#e8e8e8">已抢购{{messages.productSale}}件</text>
+        <text>已选择：<text wx:for="{{list}}" wx:key="id" wx:for-item="item"> {{item.content}}</text></text>
+      </view>
+    </view>
+    <form>
+      <view wx:for='{{productSpecification}}' wx:key="index" wx:for-index='bindex' wx:for-item="item" class="chooce" data-index='{{index}}'>
+        <h5 style="font-size:28rpx;">{{item.title}}</h5>
+        <view class='items'>
+          <block class=" items" wx:for='{{item.content}}' wx:key="index" wx:for-item="ico">
+          <image src="{{ico.image}}" wx:if="{{ico.image}}"></image>
+            <button class='{{ico.checked?"checked_button":"normal_button"}}' data-value="{{ico.name}}" data-title='{{item.title}}' data-bindex="{{bindex}}"bindtap='radioButtonTap'> {{ico.name}}</button>
+          </block>
+        </view>
+      </view>
+    </form>
+  </view>
+  <view data-value='type' bindtap='getCode_1' class='complete' wx:if='{{first}}'>确认</view>
+  <view data-value='type' bindtap='getCode_1' class='complete' wx:if='{{!first}}'>立即预定</view>
+</view>
+
+<view class='bg'></view>
+
+<view data-value='parameter' bindtap="showModal" class='parameter'>
+  <text class='same'>参数</text>
+  <text class='describe'>品牌型号...</text>
+  <text class='see_more'>查看 ></text>
+</view>
+
+<view wx-if='{{num != 0}}' class='bg'></view>
+<navigator wx-if='{{num != 0}}' class='comment' url='/pages/pro_allcomments/pro_allcomments?productid={{price[1]}}'>
+  <view class='com_header'>
+    <text>网友点评（{{num}}）</text>
+    <text>查看全部 ></text>
+  </view>
+  <view class='com_content' wx:for="{{pro_comments}}" wx:key="id">
+    <view>
+      <image src='{{item.user_protrait}}' />
+      <text class='com_phone'>{{item.user_nikename}}</text>
+    </view>
+    <text class='content'>{{item.appraisal_content}}</text>
+  </view>
+</navigator>
+
+<view wx-if='{{imgAndTxt.length > 0}}' class='cells'>
+  <view class='bg'></view>
+  <text class='title'>产品详情</text>
+  <view class='bg_white'></view>
+  <view class='pro_items' wx:for="{{imgAndTxt}}" wx:key="id">
+    <image src='{{item.imgtxtImage}}' mode='widthFix' />
+  </view>
+  <view class='bg_white'></view>
+</view>
+
+<view class='cells'>
+  <view class='bg'></view>
+  <text class='title'>购买须知</text>
+  <view class='buy_knows'>
+    <!-- <text class='qi'>有效期</text>
+    <text class='ou'>· {{startdate}}——{{stopdate}}</text> -->
+    <text wx-if='{{information.reservation}}' class='qi'>预约信息</text>
+    <text wx-if='{{information.reservation}}' class='ou'>· {{information.reservation}}</text>
+    <text wx-if='{{information.ruletips}}' class='qi'>规则提醒</text>
+    <text wx-if='{{information.ruletips}}' class='ou'>· {{information.ruletips}}</text>
+    <text wx-if='{{information.service}}' class='qi'>商家服务</text>
+    <text wx-if='{{information.service}}' class='ou'>· {{information.service}}</text>
+    <text wx-if='{{information.tips}}' class='qi'>温馨提示</text>
+    <text wx-if='{{information.tips}}' class='ou'>· {{information.tips}}</text>
+  </view>
+  <view style='height:100rpx;'></view>
+</view>
+
+<view class='buy'>
+  <text class='dingjing'>{{messages.productPriceDesc}}</text>
+  <view class='yuding yuding1' wx:if="{{messages.productStock < 1 }}"> 已售罄</view>
+  <view class='yuding' bindtap='getCode' wx-if="{{price[2]!=2}}" wx:if="{{messages.productStock > 0 }}"> 立即预定</view>
+  <view class='yuding' bindtap='getCode' wx-if="{{price[2]==2}}" wx:if="{{messages.productStock > 0 }}"> 立即抢购</view>
+
+</view>

@@ -1,0 +1,101 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class='number'>
+		<navigator url='../addrList/addrList' style="padding:20rpx;border-bottom:1px solid #ccc">
+			<view class="detail">
+				<block wx:if="{{delivery}}">
+					<view class="item item2" style="flex:1">
+							<image src="../../assets/area.jpg" mode="aspectFit"></image>
+						<view>
+							<text class='name'>{{delivery.addressContent}}</text>
+							<text class="person" wx:if="{{delivery.userGender==1}}">{{delivery.userName}} 女士 {{delivery.userPhone}}</text>
+							<text class="person" wx:if="{{delivery.userGender==0}}">{{delivery.userName}} 先生 {{delivery.userPhone}}</text>
+						</view>
+					</view>
+				</block>
+				<block wx:else>
+					<view class="item item2" style="flex:1">
+						<image src="../../assets/area.jpg" mode="aspectFit"></image>
+						<view>
+							<text class='name' style="font-weight:400;color:#000">请添加您的地址</text>
+						</view>
+					</view>
+				</block>
+				<view class="item"> > </view>
+			</view>
+		</navigator>
+	</view>
+	<!-- 选择时间 -->
+	<view class='use_info'>
+		<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+			<view class="date">
+				<view class="item item2">
+					<image src="../../assets/time.jpg" class="item-time" mode="aspectFill"></image>
+					<view>
+						<text class="person">使用时间 </text>
+						<text class="person color" style="margin-left:3.5rem">{{date1}}前 </text>
+					</view>
+
+				</view>
+				<view class="item color">
+					>
+				</view>
+			</view>
+		</picker>
+	</view>
+
+
+	<view class='store'>
+		<view class='item'>
+			<view style="align-items:center;display:flex;">
+				<!-- <image src='{{brandImageList}}' style='width:100rpx;height:80rpx;margin-right:40rpx;'></image> -->
+				{{brand}}</view>
+		</view>
+		<view class="item">
+			<view class="pro">
+				<image src="{{productTitleImgList}}" class="proimg"></image>
+				<view class="pro-text">
+					<text class="title">{{price[0]}}</text>
+					<text wx:if="{{list.length>0}}">已选择：<text  wx:for="{{list}}" wx:key="id" wx:for-item="item">  {{item.content}}</text></text>
+				</view>
+			</view>
+			<text class="card-choose">￥{{price[1]}}</text>
+		</view>
+		<view class="item">
+			<navigator url='/pages/card/card?&openId={{openid}}&brandId={{brandId}}&money={{price[1]*num}}' class="card">
+				<text>网站抵用券：</text>
+				<text class="card-choose" wx-if="{{voucher1}}">-￥{{voucherValue}}</text>
+				<text class="card-choose" style="color:#ccc" wx-if="{{!voucher1}}">暂无优惠 ></text>
+			</navigator>
+		</view>
+		<view class="item" style="border:none">
+			<view></view>
+			<view class="card-choose">小计：{{money}}</view>
+		</view>
+	</view>
+
+	<view class='buy' wx:if="{{hide}}">
+		<text class='dingjing'><text>¥<text>{{money}}</text></text>
+		<text style="color:#ccc">  | 优惠：<text style="color:#f92321">{{voucherValue}}</text></text>
+		</text>
+		<button style='border-radius:0;' class='yuding' wx:if="{{disabled == false&&stock > 0}}" formType="submit">提交订单</button>
+		<button style='border-radius:0;' class='yuding' wx:elif="{{disabled == true}}" disabled formType="submit">提交订单</button>
+		<button style='border-radius:0;' class='yuding' wx:elif="{{stock < 1}}" disabled formType="submit">已售罄</button>
+	</view>
+</form>
+<view wx:if="{{condition}}" class="citypicker">
+	<picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+		<view class="cityheader">
+			<view bindtap="open" class="city-cancel">取消</view>
+			<view bindtap="open" class="city-true">确定</view>
+		</view>
+		<picker-view-column>
+			<view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+		</picker-view-column>
+	</picker-view>
+</view>

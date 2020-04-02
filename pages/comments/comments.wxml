@@ -1,0 +1,33 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="comment" bindtap="myStarChoose">
+  <text>总体评分：</text>
+  <block wx:for="{{starMap}}" wx:key="id">
+    <text wx:if="{{star>=index+1}}" class="zan-c-red" data-star="{{index+1}}">★</text>
+    <text wx:if="{{star<index+1}}" class="zan-c-gray-dark" data-star="{{index+1}}">☆</text>
+  </block>
+</view>
+
+<view class='content'>
+  <textarea name="appraisalContent" placeholder='亲，商家产品怎么样，服务是否满意，性价比怎么样？' placeholder-class="center"></textarea>
+</view>
+
+<view class='add'>
+  <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+    <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg" />
+    <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">X</view>
+  </view>
+  
+  <image bindtap="chooseimage" src='../../assets/add_photo.png' mode="aspectFit" />
+  <!-- <image src='../../assets/add_video.png' mode="aspectFit" bindtap='bindButtonTap' /> -->
+</view>
+
+<text class='shuoming'>100字+3张图片或15秒视频，有机会<text style='color:red'>赢30元话费</text></text>
+
+<view class='foot'>
+  <label>合同金额：</label>
+  <input type='number' name="price" placeholder='￥请输入消费金额' />
+</view>
+
+<button class='remark' formType="submit">发表评论</button>
+
+</form>

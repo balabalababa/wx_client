@@ -1,0 +1,195 @@
+<swiper class="slides" indicator-dots="{{imgUrls.length > 1}}" autoplay="{{imgUrls.length > 1}}" indicator-color="#bcc0c9" indicator-active-color="#3a4861" circular="true">
+  <block wx:for="{{proitem.realTitleImage}}" wx:key="id" wx:for-item="item">
+    <swiper-item>
+      <image src="{{item}}" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class='store'>
+  <view class='store_pro'>
+    <text class='name'>{{brand.brandName}}</text>
+    <text class='youhui'>{{information.subtitle}}</text>
+    <view class='tips'>
+      <text wx:for="{{brand.brandTagList}}" wx:for-item="item" wx:key="id">{{item}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class='address'>
+  <view class='add_two' bindtap='seeMap'>
+    <image class='dizhi' src='../../assets/location.jpg' />
+    <text class='address_map'>{{brand.brandAddress}}</text>
+  </view>
+  <view class='call' bindtap='tel'>
+    <image src='../../assets/call.png' />
+  </view>
+</view>
+
+<view class='tab_header'>
+  <text class="{{currentTabsIndex==0 ? 'active' : ''}}" data-current="{{0}}" bindtap="onTabsItemTap">团购详情</text>
+  <text class="{{currentTabsIndex==1 ? 'active' : ''}}" data-current="{{1}}" bindtap="onTabsItemTap">购买须知</text>
+  <text class="{{currentTabsIndex==2 ? 'active' : ''}}" data-current="{{2}}" bindtap="onTabsItemTap">网友点评</text>
+</view>
+
+
+
+
+<view class='group_detail' hidden='{{currentTabsIndex !=0}}'>
+  <text class='combo'>套餐</text>
+  <view class='details' wx:for="{{subItems}}" wx:key="id">
+    <text style='width:318rpx; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;'>{{item.name}}</text>
+    <text class='details_num'>{{item.quantity}}份</text>
+    <text class='details_price'>{{item.price}}元</text>
+  </view>
+
+  <text class='sum_price'>总价值：{{price[1]}}元</text>
+  <text class='group_price'>团购价：<text>{{price[0]}}元</text></text>
+
+<!-- <view wx:if="{{proitem.itemexplain}}" class='ins'>{{proitem.itemexplain}}</view> -->
+
+
+<view class='pro_detail'>
+  <view class='pro_items' wx:for="{{imgAndTxt}}" wx:key="id">
+    <image src='http://mall.qszhuang.com/{{item.imgtxtImage}}'/>
+    <text>{{item.imgtxtText}}</text>
+  </view>
+</view>
+
+  <!-- <navigator class='look' url='/pages/product/product?itemid={{information.id}}&price={{price[0]}}&sumprice={{price[1]}}&deposit={{price[2]}}&title={{price[3]}}&subtitle={{price[4]}}&brandid={{price[5]}}&startdate={{startdate}}&stopdate={{stopdate}}&stock={{stock}}'>查看图文详情 ></navigator> -->
+
+
+
+
+  <view class='bg' style='margin:0 -20rpx;'></view>
+
+  <view class='combo'>购买须知</view>
+  <view class='buy_knows'>
+    <text class='qi'>有效期</text>
+    <text class='ou'>· {{startdate}}——{{stopdate}}</text>
+    <text class='qi'>预约信息</text>
+    <text class='ou'>· {{information.reservation}}</text>
+    <text class='qi'>规则提醒</text>
+    <text class='ou'>· {{information.ruletips}}</text>
+    <text class='qi'>商家服务</text>
+    <text class='ou'>· {{information.service}}</text>
+    <text class='qi'>温馨提示</text>
+    <text class='ou'>· {{information.tips}}</text>
+  </view>
+  <view class='bg' style='margin:0 -20rpx;'></view>
+
+  <text class='combo'>网友点评({{num}}条）</text>
+  <view class='comment'>
+    <navigator class='com_detail' wx:for="{{pro_comments}}" wx:key="id" url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}'>
+      <image src='{{item.user_protrait}}' />
+      <view class='de_content'>
+        <text class='name'>{{item.user_nikename}}</text>
+        <view class='mark'>
+          <text>打分</text>
+          <block wx:for="{{item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/redstar.png'></image>
+          </block>
+          <block wx:for="{{5-item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/graystar.png'></image>
+          </block>
+        </view>
+        <text class="contents {{index == id?'unellipsis':'ellipsis'}}">{{item.appraisal_content}}</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='ellipsis' wx:if="{{index != id}}">全文</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='unellipsis' wx:else>收起</text>
+        <view class='ceji'>
+          <image wx:for="{{item.realAppraisalImage}}" wx:key="id" wx:for-item="image" src='http://mall.qszhuang.com/{{image}}' data-src="{{image}}" mode="aspectFill"/>
+        </view>
+        <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
+      </view>
+    </navigator>
+    <navigator url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}' class="loadmore">查看全部评价 ></navigator>
+  </view>
+  <view style='height:100rpx;'></view>
+</view>
+
+
+<view class='buy'>
+  <text class='dingjing'>订金<text>¥<text>{{price[2]}}</text>元</text>
+  </text>
+  <view class='yuding' wx:if="{{stock > 0 }}" bindtap='getCode'> 立即预定</view>
+  <view class='yuding yuding1' wx:if="{{stock < 1 }}"> 已售罄</view>
+</view>
+
+
+<view class='group_detail' hidden='{{currentTabsIndex !=1}}'>
+  <view class='combo'>购买须知</view>
+  <view class='buy_knows'>
+    <text class='qi'>有效期</text>
+    <text class='ou'>· {{startdate}}——{{stopdate}}</text>
+    <text class='qi'>预约信息</text>
+    <text class='ou'>· {{information.reservation}}</text>
+    <text class='qi'>规则提醒</text>
+    <text class='ou'>· {{information.ruletips}}</text>
+    <text class='qi'>商家服务</text>
+    <text class='ou'>· {{information.service}}</text>
+    <text class='qi'>温馨提示</text>
+    <text class='ou'>· {{information.tips}}</text>
+  </view>
+  <view class='bg' style='margin:0 -20rpx;'></view>
+
+  <text class='combo'>网友点评({{num}}条）</text>
+  <view class='comment'>
+    <navigator class='com_detail' wx:for="{{pro_comments}}" wx:key="id" url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}'>
+      <image src='{{item.user_protrait}}' />
+      <view class='de_content'>
+        <text class='name'>{{item.user_nikename}}</text>
+        <view class='mark'>
+          <text>打分</text>
+          <block wx:for="{{item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/redstar.png'></image>
+          </block>
+          <block wx:for="{{5-item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/graystar.png'></image>
+          </block>
+        </view>
+        <text class="contents {{index == id?'unellipsis':'ellipsis'}}">{{item.appraisal_content}}</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='ellipsis' wx:if="{{index != id}}">全文</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='unellipsis' wx:else>收起</text>
+        <view class='ceji'>
+          <image wx:for="{{item.realAppraisalImage}}" wx:key="id" wx:for-item="image" src='http://mall.qszhuang.com/{{image}}' data-src="{{image}}" mode="aspectFill"/>
+        </view>
+        <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
+      </view>
+    </navigator>
+    <navigator url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}' class="loadmore">查看全部评价 ></navigator>
+  </view>
+  <view style='height:100rpx;'></view>
+</view>
+
+
+<view class='comment' hidden='{{currentTabsIndex !=2}}'>
+  <text class='combo'>网友点评({{num}}条）</text>
+  <view class='comment'>
+    <navigator class='com_detail' wx:for="{{pro_comments}}" wx:key="id" url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}'>
+      <image src='{{item.user_protrait}}' />
+      <view class='de_content'>
+        <text class='name'>{{item.user_nikename}}</text>
+        <view class='mark'>
+          <text>打分</text>
+          <block wx:for="{{item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/redstar.png'></image>
+          </block>
+          <block wx:for="{{5-item.appraisal_score}}" wx:key="item">
+            <image src='../../assets/graystar.png'></image>
+          </block>
+        </view>
+        <text class="contents {{index == id?'unellipsis':'ellipsis'}}">{{item.appraisal_content}}</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='ellipsis' wx:if="{{index != id}}">全文</text>
+        <text class='quanwen' data-id="{{index}}" bindtap='unellipsis' wx:else>收起</text>
+        <view class='ceji'>
+          <image wx:for="{{item.realAppraisalImage}}" wx:key="id" wx:for-item="image" src='http://mall.qszhuang.com/{{image}}' data-src="{{image}}" mode="aspectFill"/>
+        </view>
+        <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
+      </view>
+    </navigator>
+    <navigator url='/pages/pro_allcomments/pro_allcomments?productid={{price[6]}}' class="loadmore">查看全部评价 ></navigator>
+  </view>
+  <view style='height:100rpx;'></view>
+</view>

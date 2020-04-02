@@ -1,0 +1,145 @@
+.nav{
+  display: flex;
+  border-bottom: 1rpx solid #d6d6d6;
+  margin-top: 20rpx;
+}
+.nav .nav_item{
+  width: 20%;
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.nav .nav_item .num{
+  position: absolute;
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 38rpx;
+  background-color: red;
+  font-size: 28rpx;
+  color: white;
+  text-align: center;
+  right: 20rpx;
+  top: -10rpx;
+}
+.nav .nav_item image{
+  width: 56rpx;
+  height: 50rpx;
+}
+.nav .nav_item text{
+  font-size: 22rpx;
+  margin: 10rpx 0 15rpx;
+}
+
+.cells{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cells .bg{
+  width: 250rpx;
+  height: 30rpx;
+  border-bottom: 2rpx solid #000;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cells .title{
+  font-size: 28rpx;
+  line-height: 61rpx;
+  height: 61rpx;
+  width: 170rpx;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  z-index: 999;
+  color: #333333;
+}
+.cells .item{
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+  background-color: #fff;
+  height: 229rpx;
+}
+.cells .item image{
+  width: 168rpx;
+  height: 168rpx;
+  margin: 30rpx 20rpx;
+  border-radius: 15rpx;
+}
+.cells .item .meta{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  padding-top: 37rpx;
+}
+.cells .item .meta .name {
+  color: #333333;
+  font-size: 29rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:374rpx;
+}
+.cells .item .meta .youhui{
+  color: #666666;
+  font-size: 22rpx;
+  margin-top: 23rpx;
+}
+.cells .item .meta .n_m{
+  margin-top: 27rpx;
+}
+.cells .item .meta .number{
+  font-size: 22rpx;
+  color: #666;
+  margin-right: 52rpx;
+}
+.cells .item .meta .money{
+  font-size: 22rpx;
+  color: #666;
+}
+.cells .item .meta .money text{
+  font-size: 34rpx;
+  color: red;
+  font-weight: bold;
+}
+.cells .item .status{
+  font-size: 28rpx;
+  position: absolute;
+  right: 20rpx;
+  top:34rpx;
+  color: #666;
+}
+.cells .item .go{
+  position: absolute;
+  font-size: 26rpx;
+  color: red;
+  padding: 18rpx 36rpx;
+  border: 1rpx solid red;
+  right: 20rpx;
+  bottom: 22rpx;
+  border-radius: 15rpx;
+}
+
+.on{ 
+  color: red;
+}  
+.show{
+  display: block
+}
+.hide{
+  display: none
+}
+
+.no_see{
+  height: 231rpx;
+  width: 100%;
+  background-color: red;
+  opacity: 0;
+  position: absolute;
+}

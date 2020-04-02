@@ -1,0 +1,15 @@
+.ruleBox{
+  padding:0 20rpx;
+}
+.title{
+  font-size:40rpx;
+  color:orange;
+  text-align: center;
+  line-height: 60rpx;
+  height:60rpx;
+}
+.rule{
+  font-size:28rpx;
+  color:#666;
+  margin-bottom:20rpx;
+}

@@ -1,0 +1,127 @@
+<view class='nav'>
+  <view class="nav_item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+    <image wx:if="{{currentTab==0}}" src='../../assets/icons/o_all.png' data-current="0" bindtap="swichNav"/>
+    <image wx:else src='../../assets/icons/o_active_1.jpg' data-current="0" bindtap="swichNav"/>
+    <text data-current="0" bindtap="swichNav">全部</text>
+  </view>
+  <view class="nav_item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+    <image wx:if="{{currentTab==1}}" src='../../assets/icons/o_active_2.jpg' data-current="1" bindtap="swichNav"/>
+    <image wx:else src='../../assets/icons/o_pay.png' data-current="1" bindtap="swichNav"/>
+    <text data-current="1" bindtap="swichNav">待付款</text>
+    <view class='num {{unpaynum>0?"show":"hide"}}' data-current="1" bindtap="swichNav">{{unpaynum}}</view>
+  </view>
+  <view class="nav_item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
+    <image wx:if="{{currentTab==2}}" src='../../assets/icons/o_active_3.jpg' data-current="2" bindtap="swichNav"/>
+    <image wx:else src='../../assets/icons/o_use.png' data-current="2" bindtap="swichNav"/>
+    <text data-current="2" bindtap="swichNav">待转单</text>
+     <view class='num {{gousenum>0?"show":"hide"}}' data-current="1" bindtap="swichNav">{{gousenum}}</view>
+  </view>
+  <view class="nav_item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">
+    <image wx:if="{{currentTab==3}}" src='../../assets/icons/o_active_4.jpg' data-current="3" bindtap="swichNav"/>
+    <image wx:else src='../../assets/icons/o_appraise.png' data-current="3" bindtap="swichNav"/>
+    <text data-current="3" bindtap="swichNav">待评价</text>
+      <view class='num {{commentnum>0?"show":"hide"}}' data-current="1" bindtap="swichNav">{{commentnum}}</view>
+  </view>
+  <!-- <view class="nav_item {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">
+    <image wx:if="{{currentTab==4}}" src='../../assets/icons/o_active_5.jpg' data-current="4" bindtap="swichNav"/>
+    <image wx:else src='../../assets/icons/o_service.png' data-current="4" bindtap="swichNav"/>
+    <text data-current="4" bindtap="swichNav">售后</text>
+  </view> -->
+</view>
+
+<view class='no_see'></view>
+
+<swiper class='cells' current="{{currentTab}}" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+
+  <swiper-item>
+    <view id='viewid' wx:for="{{orders}}" wx:key="id">
+    <view id="gotoid" data-hi="{{item.orderStatus}}" data-orderId='{{item.orderNo}}' bindtap='goto' class='item' wx:if="{{item.orderStatus!=10}}">
+        <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+        <view class="meta">
+          <text class="name">{{item.productName}}</text>
+          <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+          <view class='n_m'>
+            <text class='number'>数量：{{item.orderProductNum}}套</text>
+            <text class="money">￥{{item.orderTotalMoney}}元</text>
+          </view>
+        </view>
+        <view class="status">{{item.orderStatus}}</view>
+        <navigator open-type="redirectTo" wx:if="{{item.orderStatus == '待付款'}}" class='go' url='/pages/obligation/obligation?orderId={{item.orderNo}}'>付款</navigator>
+        <navigator open-type="redirectTo" wx:elif="{{item.orderStatus == '待评价'}}" class='go' url='/pages/comments/comments?orderId={{item.orderNo}}'>去评价</navigator>
+    </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view wx:for="{{orders}}" wx:key="id">
+      <view class='item' wx:if="{{item.orderStatus=='待付款'}}">
+        <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+        <view class="meta">
+          <text class="name">{{item.productName}}</text>
+          <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+          <view class='n_m'>
+            <text class='number'>数量：{{item.orderProductNum}}套</text>
+            <text class="money">待付款：￥{{item.orderTotalMoney}}元</text>
+          </view>
+        </view>
+        <view class="status">{{item.orderStatus}}</view>
+        <navigator open-type="redirectTo" url='/pages/obligation/obligation?orderId={{item.orderNo}}' class='go'>付款</navigator>
+      </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+
+    <navigator open-type="redirectTo" url="/pages/prepaid/prepaid?orderId={{item.orderNo}}" wx:for="{{orders}}" wx:key="id">
+        <view class='item' wx:if="{{item.orderStatus=='已付款'||item.orderStatus=='拒绝退款'}}">
+          <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+          <view class="meta">
+            <text class="name">{{item.productName}}</text>
+            <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+            <view class='n_m'>
+              <text class='number'>数量：{{item.orderProductNum}}套</text>
+              <text class="money">{{item.orderStatus}}：￥{{item.orderTotalMoney}}元</text>
+            </view>
+          </view>
+          <view class="status">{{item.orderStatus}}</view>
+        </view>
+    </navigator>
+  </swiper-item>
+
+  <swiper-item>
+    <view wx:for="{{orders}}" wx:key="id">
+        <view class='item' wx:if="{{item.orderStatus=='待评价'}}">
+          <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+          <view class="meta">
+            <text class="name">{{item.productName}}</text>
+            <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+            <view class='n_m'>
+              <text class='number'>数量：{{item.orderProductNum}}套</text>
+              <text class="money">付款：￥{{item.orderTotalMoney}}元</text>
+            </view>
+          </view>
+          <view class="status">{{item.orderStatus}}</view>
+          <navigator open-type="redirectTo" url='/pages/comments/comments?orderId={{item.orderNo}}' class='go'>去评价</navigator>
+        </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view wx:for="{{orders}}" wx:key="id">
+        <view id="gotoid" data-hi="{{item.orderStatus}}" data-orderId='{{item.orderNo}}' bindtap='goto' class='item' wx:if="{{ item.orderStatus=='已退款'}}">
+          <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+          <view class="meta">
+            <text class="name">{{item.productName}}</text>
+            <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+            <view class='n_m'>
+              <text class='number'>数量：{{item.orderProductNum}}套</text>
+              <text class="money">订金：￥{{item.orderTotalMoney}}</text>
+            </view>
+          </view>
+          <view class="status">{{item.orderStatus}}</view>
+        </view>
+      </view>
+  </swiper-item>
+
+
+</swiper>  

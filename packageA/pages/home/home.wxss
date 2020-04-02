@@ -1,0 +1,32 @@
+.duihuan_nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:80rpx;
+ }
+ .duihuan_nav .nav_item{
+   color:green;
+   border-bottom:2px solid green;
+ }
+.live{
+  padding:20rpx;
+}
+.live_item{
+  margin:20rpx 0;
+}
+.item_title{
+  text-align: center;
+  margin:20rpx 0;
+}
+.live_item_wrap{
+  display: flex;
+}
+.live_item_wrap image{
+  width:250rpx;
+  height:200rpx;
+  margin-right:20rpx;
+}
+.item_info{
+ flex:1;
+ text-align: center;
+}

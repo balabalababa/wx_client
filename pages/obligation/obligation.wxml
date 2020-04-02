@@ -1,0 +1,82 @@
+<view class='go_pay'>
+  <text class='obli'>待付款</text>
+  <view class='time'>
+    <text>剩余支付时间：</text>
+    <text>{{countDownMinute}}</text>
+    <text>:</text>
+    <text>{{countDownSecond}}</text>
+  </view>
+  <view bindtap='continuePay'  class='continue'>继续支付</view>
+</view>
+
+<view class='content'>
+  <text class='bianhao'>订单编号：{{orderId}}</text>
+  <view class='pay_name'>
+    <text class='name'>{{informations.brandName}}</text>
+    <view class="show">
+      <view><image src="{{productTitleImgList}}"></image></view>
+      <view class="show_text">
+        <text class="name" style="padding:0;margin:20rpx 0;">{{informations.productName}}</text>
+        <text wx:if="{{list.length>0}}">已选择：<text wx:for='{{list}}' wx:key="index"> {{item.content}}</text></text>
+      </view>
+    </view>
+    <text class='tip'>请到门店使用</text>
+  </view>
+
+  <view class='money'>
+    <text>订单总价</text>
+    <text class='m'>{{informations.productPrice}}</text>
+  </view>
+
+  <view class='money border-10'>
+    <text>待付款</text>
+    <text class='m red'>¥{{informations.orderRealTotalMoney}}</text>
+  </view>
+
+  <view class='tips'>
+    <view class='re_rules'>
+      <view class='re_rulesL'>使用日期：</view>
+      <view class='color_red re_rulesR'>{{informations.orderStartDate}}至{{informations.orderStopDate}}</view>
+    </view>
+    <view class='re_rules'>
+      <view class='re_rulesL'>使用方法：</view>
+      <view class='re_rulesR'>请到门店实际看样，到店后出示该订单验证，享受订单折扣。</view>
+    </view>
+    <view class='re_rules'>
+      <view class='re_rulesL'>营业时间：</view>
+      <text class='re_rulesR'>周一至周五 {{informations.brandWeekTime}}\n周六至周日 {{informations.brandWeekendTiem}}</text>
+    </view>
+    <view class='re_rules'>
+      <view class='re_rulesL'>通用门店：</view>
+      <view class='re_rulesR'>
+        <text style='display:block;' wx:for='{{informations.brandStoreName}}' wx:key='id'>{{item}}</text>
+      </view>
+    </view>
+    <view class='re_rules'>
+      <view class='re_rulesL'>购买数量：</view>
+      <view class='re_rulesR'>{{informations.orderProductNum}}套</view>
+    </view>
+    <view class='re_rules'>
+      <view class='re_rulesL'>退订规则：</view>
+      <view class=' re_rulesR'>未发生服务或成交前可申请退款，一笔订单不支持部分退款，退款审核不超过7个工作日。</view>
+    </view>
+  </view>
+
+  <view class='ziliao'>
+    <text class='bold'>业主：{{informations.userName}}       {{informations.userPhone}}</text>
+    <text>地址：{{informations.userAddress}}</text>
+  </view>
+
+  <view class='date'>
+    <text>下单时间：{{informations.orderCreateTime}}</text>
+    <text>支付方式：在线支付</text>
+    <!-- <text>供应商：</text> -->
+  </view>
+</view>
+
+<view class='bg'></view>
+
+<view class='call'>
+  <text>如遇到商品信息和订单相关问题，请拨打供应商客服电话： <text class='color_blue'>400-091-0090</text></text>
+ 
+</view>

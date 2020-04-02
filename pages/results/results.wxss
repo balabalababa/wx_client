@@ -1,0 +1,45 @@
+page{
+  background-color: #f5f5f5;
+}
+
+.header,.content{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.header image{
+  width: 146rpx;
+  height: 141rpx;
+  padding-top: 64rpx;
+  padding-left: 302rpx;
+}
+.header text{
+  text-align: center;
+  padding: 19rpx 0 60rpx 0;
+  font-size: 30rpx;
+}
+
+.bg{
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.content{
+  padding-top: 32rpx;
+  padding-left: 50rpx;
+  font-size: 30rpx;
+  border-bottom: 3rpx solid #f5f5f5;
+  margin-top: 20rpx;
+}
+.content text{
+  padding-bottom: 30rpx;
+}
+
+.see_more{
+  height: 86rpx;
+  line-height: 86rpx;
+  background-color: white;
+  font-size: 28rpx;
+  color: #7ec052;
+  padding-left: 50rpx;
+}

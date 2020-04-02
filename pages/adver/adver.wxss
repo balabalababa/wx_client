@@ -1,0 +1,99 @@
+page{
+  margin-bottom:46px;
+}
+button{
+  line-height: 2;
+  font-size:23px;
+}
+.ad_banner image {
+  width: 100%;
+
+  display: block;
+
+}
+.ad_content{
+  line-height: 0;
+}
+.ad_content image{
+  width: 100%;
+ font-size: 0;
+
+  display: block;
+
+}
+view,image,text{
+    margin:0;
+  padding: 0;
+}
+.ad_info{
+  display: flex;
+  flex-direction:column;
+  padding:20rpx;
+  padding-bottom:0;
+}
+.ad_info view{
+  margin-bottom: 15rpx;
+}
+.ad_enroll{
+  padding:20rpx;
+}
+.ad_enroll .section{
+  padding:20rpx 10rpx;
+  border:1px solid #ccc;
+  display: flex;
+  margin-bottom:20rpx;
+  border-radius: 10rpx;
+}
+.ad_enroll .section .section__title{
+  width:150rpx;
+}
+.btn-area button{
+  background-color: #e2040d;
+  color:#fff;
+  border-radius: 10rpx;
+}
+.ad_modal{
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.ad_modal_main{
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 20%;
+  background-color: #fff;
+  border-radius: 10rpx;  
+}
+.ad_join{
+  width:100%;
+  position: fixed;
+  bottom:0rpx;
+  color:#fff;
+  background-color: #e2040d;
+  border-radius: 10rpx;
+}
+.ad_tips{
+  display: flex;
+  flex-direction: row-reverse;
+  padding:10rpx;
+}
+.ad_tips view{
+  width:30rpx;
+  height:30rpx;
+}
+.ad_modal_bg{
+  background-color: #000;
+  opacity: 0.6;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  
+}
+.ad_info .ad_them{
+  text-align: center;
+  font-size:40rpx;
+  margin:0;
+}

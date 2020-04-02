@@ -1,0 +1,79 @@
+/* pages/card/card.wxss */
+.cards{
+  padding:3%;
+  background:#f5f5f5;
+  min-height:700px;
+}
+.card{
+  color:#000;
+  background:#f5f5f5;
+  margin-bottom:20px;
+}
+.card-1{
+  color:#ccc;
+  background:#fff;
+  margin-bottom:20px;
+}
+.card-main{
+  padding:20rpx 0 20rpx 10rpx;
+  display: flex;
+  background:#fff;
+  border-radius:8px;
+}
+
+.card-money{
+  border-right:1px dashed #ccc;
+  padding-right:10px;
+  color:red;
+  width:20%;
+  display:flex;
+  align-items:center;
+}
+.card-money1{
+  border-right:1px dashed #ccc;
+  padding-right:10px;
+  color:#ccc;
+  width:20%;
+  display:flex;
+  align-items:center;
+}
+.card-msg{
+  display: flex;
+  flex-direction:column;
+  margin-left:10px;
+}
+.card-title{
+  font-size:40rpx;
+}
+.card-time{
+  font-size:30rpx;
+  margin:7rpx 0;
+}
+.card-and{
+  font-size:25rpx;
+  color:red;
+}
+.card-and1{
+  font-size:25rpx;
+  color:#ccc;
+}
+.money{
+  font-size:48rpx;
+}
+.card-foot{
+ font-size:30rpx;
+ height:40px;
+ line-height:40px;
+ padding-left:10rpx;
+ box-shadow:0px 5px 3px #e4e4e4;
+ border-radius:8px;
+}
+.card-foot1{
+  border-top:1px dashed #ccc;
+  font-size:30rpx;
+  height:40px;
+  line-height:40px;
+  padding-left:10rpx;
+  box-shadow:0px 5px 3px #e4e4e4;
+  border-radius:8px;
+}

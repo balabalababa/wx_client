@@ -1,0 +1,53 @@
+<view class='go_pay'>
+  <text class='obli'>退款状态 > </text>
+  <text class='cancel'>轻松装处理中</text>
+</view>
+
+<view class='pay_name'>
+  <text class='name'>退款金额： ￥100</text>
+  <text class='name'>退回账户：微信支付</text>
+</view>
+
+<view class='bg'></view>
+
+<view class='content'>
+  <text class='plan'>退款进度</text>
+  <view class='content_v'>
+    <image class='details_01' src='../../assets/details/details_01.jpg'/>
+    <view class='detail'>
+      <text>退款申请已提交</text>
+      <text>您的退款申请已成功提交</text>
+      <text>2018-08-01  14:43:22</text>
+    </view>
+  </view>
+  <view class='content_v'>
+    <image class='details_02' src='../../assets/details/details_02.jpg'/>
+    <view class='detail'>
+      <text>轻松装处理中</text>
+      <text>您的退款申请已提交受理，审核通过后，钱款预计</text>
+      <text>2018-08-0116:43前提交至原支付方</text>
+      <text>具体到账时间以原支付方为准</text>
+    </view>
+    <image class='details_03' src='../../assets/details/details_03.jpg'/>
+  </view>
+  <view class='content_v'>
+    <view class='detail'>
+      <text>微信支付到账处理</text>
+      <text>轻松装审核通过后退款申请将提交至微信支付，微信支付会在1-3个工作日内完成处理</text>
+    </view>
+    <image class='details_04' src='../../assets/details/details_04.jpg'/>
+  </view>
+  <view class='content_v'>
+    <image class='details_05' src='../../assets/details/details_05.jpg'/>
+    <view class='detail'>
+      <text>退款成功</text>
+      <text>微信支付处理完成后，退款会在3-5个工作日内退回至您的微信支付账户</text>
+    </view>
+  </view>
+</view>
+
+<view class='bg'></view>
+<view class='call'>
+  <text>如遇到商品信息和订单相关问题，请拨打供应商客服电话： <text class='color_blue'>400-010-2233</text></text>
+  <text>消费不满意，投诉供应商，请拨打轻松装客服电话：\n <text class='color_blue'>400-091-0091</text></text>
+</view>

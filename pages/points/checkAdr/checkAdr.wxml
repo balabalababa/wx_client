@@ -1,0 +1,49 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="addrInfo">
+  <view class="section section_gap">
+    <text class="section__title">联系人</text>
+    <input name="input" placeholder="输入姓名" value="{{userName}}"/>
+  </view>
+  <view class="section section_gap">
+    <text class="section__title">电话</text>
+    <input name="input" placeholder="输入电话" value="{{userPhone}}"/>
+  </view>
+  <view class="section">
+    <text class="section__title">城市</text>
+    <picker mode="region" value="{{city}}" name="{{city}}" custom-item="{{my}}" bindchange='wukong'>
+      {{city[0]}} {{city[1]}} {{city[2]}}</picker>
+  </view>
+  <view class="section">
+    <text class="section__title">详细地址</text>
+    <input name="input" placeholder="输入地址" value="{{city[3]}}"/>
+  </view>
+</view>
+
+  <view style="padding:0 20rpx;">
+    <view class="goodInfo item">
+      <view>
+        <image src="{{goodItem.giftImage}}"></image>
+      </view>
+      <view class="good">
+        <view class="good-title">{{goodItem.giftName}}</view>
+        <view class="good_news color">
+          <image src='/assets/points/record-point.jpg'></image> {{goodItem.giftPoint}}积分
+        </view>
+      </view>
+
+    </view>
+    <view class="item">
+      <view>配送方式</view>
+      <view>快递包邮</view>
+    </view>
+    <view class="item">
+      <view>积分抵扣</view>
+      <view class="color">-{{goodItem.giftPoint}}</view>
+    </view>
+  </view>
+
+
+  <view class="btn-area">
+    <button formType="submit">确认兑换</button>
+  </view>
+</form>

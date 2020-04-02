@@ -1,0 +1,161 @@
+.bg {
+  width: 100%;
+  height: 20rpx;
+  background: #eee;
+}
+
+.head_nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+}
+.head_nav .navitem{
+  flex:1;
+  padding-right: 5rpx;
+}
+.head_nav image {
+  margin-right: 5rpx;
+}
+
+.head_nav span {
+  color: orange;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100rpx;
+  padding-left: 5rpx;
+}
+
+image {
+  width:100%;
+}
+
+.head_nav image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.head_nav view{
+  display: flex;
+  align-items: center;
+}
+.hot {
+  display: flex;
+  flex-wrap:nowrap;
+  white-space: nowrap;
+  width:100%;
+  overflow: hidden;
+  height:280rpx;
+}
+
+.hot .hot_item {
+  position: relative;
+  padding: 0 40rpx;
+  margin: 40rpx 5rpx;
+  width: 250rpx;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+  display: inline-block;
+}
+.hot :last-child{
+  border:none;
+}
+.hot .hot_sign {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: -34rpx;
+  left: 0;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.hot .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 35rpx;
+}
+
+.hot .hot_item_point {
+  color: orange;
+  font-size: 25rpx;
+    text-overflow: ellipsis;
+  white-space: nowrap;
+  width:100%;
+  overflow: hidden;
+}
+
+.hot .hot_item_point text {
+  font-size: 40rpx;
+  
+}
+
+.hot_item image {
+  width: 100%;
+  height: 100rpx;
+}
+
+
+.duihuan_nav{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ height:80rpx;
+}
+.duihuan_nav .nav_item{
+  color:green;
+  border-bottom:2px solid green;
+}
+.good_group{
+  padding:0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+.good_item{
+  border:1px solid#ccc;
+  border-radius:10rpx;
+  width:48%;
+  position:relative;
+  margin-bottom:20rpx;
+}
+.good_item .item_pic{
+  margin:20rpx;
+}
+.good_item .item_pic image{
+  height:220rpx;
+}
+.good_item .good_title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  font-size:35rpx;
+  padding:0 10rpx;
+}
+.good_item .good_text{
+  color:orange;
+  font-size:25rpx;
+  padding:0 10rpx;
+  margin-bottom:30rpx;
+}
+.good_item .good_text span{
+  font-size:40rpx;
+}
+.good_item .good_sign{
+  background:green;
+  color:#fff;
+  width:100rpx;
+  font-size:25rpx;
+  height:40rpx;
+  line-height:40rpx;
+  position:absolute;
+  top:10rpx;
+  left:-10rpx;
+ text-align: center;
+}

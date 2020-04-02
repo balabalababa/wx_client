@@ -1,0 +1,359 @@
+page{
+  background-color: #f5f5f5;
+}
+.store {
+  margin: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  background:#fff;
+}
+
+.store .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20rpx;
+  border-bottom: 1px solid #ccc;
+  padding:20rpx 0;
+}
+
+.store .pro {
+  display: flex;
+  flex-direction: row;
+}
+
+.store .pro view {
+  width: 75%;
+}
+
+.store .pro .proimg {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}
+
+.store .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.store .name {
+  font-size: 32rpx;
+  color: #333;
+  display: block;
+  font-weight: bold;
+  margin: 0 0 20rpx 0;
+}
+
+.store .title {
+  font-size: 32rpx;
+  font-weight: blod;
+}
+
+.store .bao {
+  font-size: 28rpx;
+}
+
+.store .person {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.store .date {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.store .color {
+  color: red;
+}
+
+.bg {
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.use_info {
+  display: flex;
+  flex-direction: column;
+  margin: 0rpx 30rpx;
+  background:#fff;
+}
+
+.use_info .date {
+  display: flex;
+  margin: 30rpx 20rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.use_info .date .item2 {
+  flex:1;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+.use_info .date .item .item-time {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.use_info .date .color {
+  color: #f92321;
+}
+
+.riqi {
+  font-size: 40rpx;
+  color: #000;
+}
+
+.use_info .date_one {
+  width: 243rpx;
+  height: 143rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 20rpx;
+  margin-left: 18rpx;
+  position: relative;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.use_info .date_one input:first-of-type {
+  position: absolute;
+  top: 28rpx;
+  left: 44rpx;
+}
+
+.use_info .date_one text:last-of-type {
+  position: absolute;
+  bottom: 20rpx;
+  left: 43rpx;
+  color: red;
+  font-size: 40rpx;
+}
+
+.use_info .date_one .date_more {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 143rpx;
+  text-align: center;
+}
+
+.use_info .date_one image {
+  width: 56rpx;
+  height: 56rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.use_info .valid {
+  font-size: 20rpx;
+  color: #666;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.number {
+  margin: 20rpx 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  background:#fff;
+
+}
+
+.number .item {
+  align-items: center;
+  display:flex;
+}
+.number .item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right:20rpx;
+}
+
+.number .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number .name {
+  font-size: 32rpx;
+  color: #333;
+  display: block;
+  font-weight: bold;
+}
+
+.number .person {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.use_info .min_plus {
+  position: absolute;
+  right: 0;
+  border-bottom: 1rpx solid #f5f5f5;
+  border-right: 1rpx solid #f5f5f5;
+}
+
+.use_info .min_plus text, .use_info .min_plus input {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  border-top: 1rpx solid #f5f5f5;
+  border-left: 1rpx solid #f5f5f5;
+  font-size: 30rpx;
+}
+
+.disabled {
+  color: #ccc;
+}
+
+.use_info .min_plus input {
+  margin-bottom: -19rpx;
+}
+
+.address {
+  margin: 0 30rpx;
+}
+
+.address .bitian {
+  font-size: 40rpx;
+  color: #000;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+
+.address .inputs input, .address .inputs view {
+  height: 94rpx;
+  width: 100%;
+  line-height: 94rpx;
+  border-top: 1rpx solid #f5f5f5;
+  font-size: 30rpx;
+}
+
+.address .inputs view {
+  position: relative;
+}
+
+.address .inputs view image {
+  position: absolute;
+  right: 10rpx;
+  width: 26rpx;
+  height: 36rpx;
+  top: 32rpx;
+}
+
+.you {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-top: 30rpx;
+  position: fixed;
+  bottom: 96rpx;
+  width: 100%;
+  background-color: white;
+  padding-left: 30rpx;
+}
+
+.buy {
+  height: 96rpx;
+  border-top: 1rpx solid #d6d6d6;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.buy .dingjing {
+  font-size: 30rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+.buy .dingjing text {
+  color: #f92321;
+}
+
+.buy .dingjing text text {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.buy .yuding {
+  width: 190rpx;
+  height: 96rpx;
+  background-color: #f92321;
+  line-height: 96rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  right: 0;
+}
+
+/*时间弹窗  */
+
+.citypicker {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+}
+
+.citybody {
+  position: fixed;
+  bottom: 0px;
+}
+
+.cityheader {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 5;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #828282;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #10ff10;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #ccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+
+.card {
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-choose {
+  color: #ff7e73;
+  float: right;
+}
+.pro-text{
+  display: flex;
+  flex-direction: column;
+  font-size:26rpx;
+}

@@ -1,0 +1,45 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="section">
+    <view class="section__title">联系人:</view>
+    <input name="name" placeholder="姓名" value="{{userInfo.userName}}" class="adr_right"  />
+  </view>
+  <view class="section">
+    <view class="section__title"></view>
+    <radio-group name="sex"class="adr_right" >
+        <label class="radio" wx:for="{{sexs}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+        </label>
+    </radio-group>
+  </view>
+  <view class="section">
+    <view class="section__title">电话:</view>
+    <input name="tel" placeholder="手机号码" value="{{userInfo.userPhone}}" class="adr_right" />
+  </view>
+  <view class="section" bindtap="getUserLocation">
+  <view class="section__title">城市:</view>
+  <view wx:if="{{!city}}" class="map adr_right"><image src="./../../images/map.png"/>请选择地址</view>
+  <view wx:else class="indo_adr adr_right">{{city}}</view>
+  </view> 
+    
+
+  <view class="section">
+    <view class="section__title">详细地址:</view>
+    <input name="addrdetail" placeholder="如小区" value="" value="{{userInfo.addressContent[1]}}" class="adr_right" />
+  </view>
+  <view class="section">
+    <view class="section__title">标签:</view>
+    <radio-group name="group" class="adr_right" >
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+    </radio-group>
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">默认地址:</view>
+    <switch name="switch" class="adr_right" value="{{userInfo.addressStatus}}" />
+  </view>
+  <view class="btn-area">
+    <button form-type="submit" type="success">保存</button>
+  </view>
+</form>

@@ -1,0 +1,30 @@
+#myVideo{
+  width:100%;
+}
+.room_title{
+  text-align: center;
+  margin:20rpx 0;
+  font-size:40rpx;
+}
+.goods_item {
+  display: flex;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.item_img {
+  margin-right: 15rpx;
+}
+
+.item_img image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.item_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}

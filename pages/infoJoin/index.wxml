@@ -1,0 +1,15 @@
+<view class="enroll">
+	<view class="enroll_item" wx:if="{{dataList.length>0}}" wx:for="{{dataList}}" wx:key="index" bindtap="handleClick" data-act="{{item.byActivityId}}">
+		<view class="item_title">
+			<view class="title_name">{{item.byActivityId.activityTheme}}</view>
+			<view class="title_tips  {{item.byActivityId.isDeleted==1?' ':'item_end'}}">{{item.byActivityId.isDeleted==1?'已报名':'已结束'}}</view>
+		</view>
+		<view class="item_main" wx:if="{{item.byActivityId.activityTime.length>2||item.byActivityId.activtyLocation.length>2}}">
+			<view class="item_time" wx:if="{{item.byActivityId.activityTime.length>2}}">活动时间：{{item.byActivityId.activityTime}}</view>
+			<view class="item_adr" wx:if="{{item.byActivityId.activtyLocation.length>2}}">活动地点：{{item.byActivityId.activtyLocation}}</view>
+		</view>
+	</view>
+	<view class="noinfo" wx:if="{{dataList.length==0}}">
+		目前没有报名信息
+	</view>
+</view>

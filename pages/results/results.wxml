@@ -1,0 +1,12 @@
+<view class='header'>
+  <image src='../../assets/pay_success.png'/>
+  <text>购买成功</text>
+</view>
+
+<view class='content'>
+<text>西门子开关(红星店)-品宜32只套餐</text>
+<text style='font-size:34rpx; font-weight:bold'>订单编号：1255 4233 6599 778</text>
+<text>向商家出示以上订单号即可消费</text>
+</view>
+
+<view class='see_more'>查看图文详情 ></view>

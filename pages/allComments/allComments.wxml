@@ -1,0 +1,27 @@
+<view class='comment'>
+  <text class='com_num'>网友点评({{num}}条）</text>
+  <view class='com_detail' wx:for="{{brand_comments}}" wx:key="id">
+    <image src='{{item.user_protrait}}'/>
+    <view class='de_content'>
+      <text class='name'>{{item.user_nikename}}</text>
+      <view class='mark'>
+        <text>打分</text>
+        <block wx:for="{{item.appraisal_score}}" wx:key="item">
+          <image src='../../assets/redstar.png'></image>
+        </block>
+        <block wx:for="{{5-item.appraisal_score}}" wx:key="item">
+          <image src='../../assets/graystar.png'></image>
+        </block>
+      </view>
+      <text class="contents {{index == id?'unellipsis':'ellipsis'}}">{{item.appraisal_content}}</text>
+      <text class='quanwen' data-id="{{index}}" bindtap='ellipsis' wx:if="{{index != id}}">全文</text>
+      <text class='quanwen' data-id="{{index}}" bindtap='unellipsis' wx:else>收起</text>
+      <view class='ceji'>
+        <image bindtap='imgYu' wx:for="{{item.realAppraisalImage}}" wx:key="id" wx:for-item="image" src='{{image}}' data-src="http://mall.qszhuang.com{{image}}" data-list='{{item.realAppraisalImage}}' mode="aspectFill"/>
+      </view>
+      <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
+    </view>
+  </view>
+</view>
+<view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view wx:else class="loadmore">没有更多了</view>

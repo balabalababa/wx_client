@@ -1,0 +1,154 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.2",
+	"appid": "wx8a216ac4982d99d0",
+	"projectname": "qs_budan",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "评论",
+					"pathName": "pages/comments/comments",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新产品页",
+					"pathName": "pages/new_product/new_product",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "pages/submit/submit",
+					"pathName": "pages/submit/submit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的地址",
+					"pathName": "pages/addrList/addrList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/points/points",
+					"pathName": "pages/points/points",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/points/points",
+					"pathName": "pages/points/points",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "adver",
+					"pathName": "pages/adver/adver",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/chooseAddress/index",
+					"pathName": "pages/chooseAddress/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newAddr/newAddr",
+					"pathName": "pages/newAddr/newAddr",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/",
+					"pathName": "packageA/pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packageA/pages/home/home",
+					"pathName": "packageA/pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pageCode/pages/code/index",
+					"pathName": "pageCode/pages/code/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "报名",
+					"pathName": "pages/infoJoin/index",
+					"query": "",
+					"scene": 1011
+				}
+			]
+		}
+	}
+}

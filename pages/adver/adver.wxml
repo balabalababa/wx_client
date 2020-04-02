@@ -1,0 +1,44 @@
+<view class="ad_banner">
+	<image class="" src="{{actContent.mianImgUrl}}" mode="widthFix"></image>
+</view>
+<view class="ad_modal" wx:if="{{modalFlag==1}}" catchtouchmove="true">
+	<view class="ad_modal_bg"></view>
+	<view class="ad_modal_main">
+		<view class="ad_tips">
+			<view bindtap="showModal" data-falg="0"> X</view>
+		</view>
+
+		<view class="ad_info ">
+			<view class="{{actContent.activityTime?'':'ad_them'}} ">{{actContent.activityTheme}}</view>
+			<view class="ad_time">{{actContent.activityTime}}</view>
+			<view class="ad_address">{{actContent.activtyLocation}}</view>
+			<view class="ad_way">{{actContent.routeInstructions}}</view>
+		</view>
+		<view class="ad_enroll">
+			<form bindsubmit="formSubmit" bindreset="formReset">
+				<view class="section">
+					<view class="section__title">姓名:</view>
+					<input name="userName" placeholder="请填写姓名" />
+				</view>
+				<view class="section">
+					<view class="section__title">手机号码:</view>
+					<input name="userPhone" placeholder="请填写手机号码" />
+				</view>
+				<view class="btn-area">
+					<button formType="submit">报名</button>
+				</view>
+			</form>
+		</view>
+	</view>
+
+</view>
+
+<view class="ad_content">
+  <view style="width:100%;height:{{item.height}}px" wx:for="{{ images}}" wx:key="{{index}}" >
+  	<image src="{{item.url}}"  mode="widthFix" data-index="{{index}}"  class="show_image{{index}}" bindload="resizeview">
+	</image>
+  </view>
+
+</view>
+
+<button wx:if="{{modalFlag!=1}}" bindtap="showModal" data-falg="1" class="ad_join">点我报名</button>

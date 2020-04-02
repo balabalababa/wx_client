@@ -1,0 +1,33 @@
+<button bindtap="dingyue">强制刷新</button>
+<view class="duihuan_nav">
+  <view wx:for="{{nav}}" wx:key="index" bindtap="tabClick" data-index="{{index}}" class="{{index==curnavIndex?'nav_item':''}}">{{item}}
+  </view>
+</view>
+<view class="live">
+	<!-- <navigator url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}" wx:for="{{roomInfo}}" wx:key="index" class="live_item">
+		<view class="item_title">
+			{{item.name}}
+		</view>
+		<view class="live_item_wrap">
+			<image src="{{item.cover_img}}"></image>
+			<view class="item_info">
+				<view>
+					{{item.start_time}}
+				</view>
+			</view>
+		</view>
+	</navigator> -->
+  	<view  wx:for="{{showrooms}}" wx:key="index" class="live_item" bindtap="getLiveVideo" data-room="{{item}}" >
+		<view class="live_item_wrap">
+			<image src="{{item.cover_img}}"></image>
+			<view class="item_info">
+      	<view class="item_title">
+			{{item.name}}
+		</view>
+				<view>
+					{{item.start_time}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

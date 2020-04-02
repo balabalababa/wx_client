@@ -1,0 +1,56 @@
+<view class="status nowGet" wx:if='{{redoomInfo.getStatus==1}}'>
+  <view class="good-status">待领取</view>
+  <view class="get" bindtap="recive">领取</view>
+</view>
+<view class="status nowGet" wx:if='{{redoomInfo.getStatus==2}}'>
+  <view class="good-status color">已领取</view>
+  
+</view>
+<view class="status" wx:if='{{redoomInfo.getStatus==3}}'>
+  <view class="good-status">待发货</view>
+  <view class="delivery-status">会在7个工作日内发货，请耐心等待</view>
+</view>
+<view class="status" wx:if='{{redoomInfo.getStatus==4}}'>
+  <view class="good-status">已发货</view>
+  <view class="delivery-status">会在7个工作日内发货，请耐心等待</view>
+</view>
+<view class="status nowGet" wx:if='{{redoomInfo.getStatus==5}}'>
+  <view class="good-status color">已领取</view>
+  
+</view>
+
+<view class="address" wx:if="{{redoomInfo.getStatus==3||redoomInfo.getStatus==4||redoomInfo.getStatus==5}}">
+  <view class="adr-title">收货地址</view>
+  <view class="addrDetail">
+    <view>{{redoomInfo.userName}} {{redoomInfo.userPhone}}</view>
+    <view>{{redoomInfo.address}}</view>
+  </view>
+</view>
+<view style="padding:0 20rpx;border-bottom:10rpx solid #ccc;">
+  <view class="goodInfo item">
+    <view>
+      <image src='{{redoomInfo.giftImg}}'></image>
+    </view>
+    <view class="good">
+      <view class="good-title">{{redoomInfo.giftName}}</view>
+      <view class="good_news">
+        <image src='/assets/points/record-point.jpg'></image> {{redoomInfo.point}}
+      </view>
+    </view>
+
+  </view>
+  <view class="item"  wx:if="{{redoomInfo.getStatus==3||redoomInfo.getStatus==4||redoomInfo.getStatus==5}}">
+    <view>配送方式</view>
+    <view>快递包邮</view>
+  </view>
+  <view class="item" style="border:none;">
+    <view>积分抵扣</view>
+    <view>-{{redoomInfo.point}}</view>
+  </view>
+</view>
+<view class="item serve">
+  <view>联系客服</view>
+  <view>
+    <text class="tel">400-091-0090</text><image src='/assets/jiantou.png' />
+  </view>
+</view>

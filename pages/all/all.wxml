@@ -1,0 +1,25 @@
+
+
+<!-- <include src="/includes/search-bar.wxml"/> -->
+<view wx:if="{{totalCount}}">
+<view class='cells'>
+  <navigator class='item' wx:for='{{shops}}' wx:key='id' url='/pages/brand/brand?brandid={{item.brandID}}'>
+      <image src='{{item.brandImageList[0]}}'/>
+      <view class="meta">
+        <text class="name">{{item.brandName}}</text>
+        <text class="youhui">{{item.brandSubtitle}}</text>
+        <view class='tips'>
+            <text wx:for="{{item.brandTagList}}" wx:key='id' wx:for-item="item">{{item}}</text>
+        </view>
+        <text class="money">订金<text>{{item.brandLowestPrice}}</text>起</text>
+      </view>
+      <view class="address">{{item.brandLocation}}</view>
+  </navigator>
+</view>
+
+<view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view wx:else class="loadmore">没有了</view>
+</view>
+
+
+<view class="loadmore" wx:else>暂无产品，敬请期待</view>

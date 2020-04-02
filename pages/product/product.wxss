@@ -1,0 +1,122 @@
+.pro_detail{
+  padding-bottom: 36rpx;
+}
+.pro_items{
+  display: flex;
+  flex-direction: column;
+}
+
+.pro_items image{
+  padding: 0 20rpx;
+  width: 710rpx;
+  height: 401rpx;
+}
+.pro_items text{
+  font-size: 24rpx;
+  color: #333;
+  padding: 27rpx 20rpx;
+}
+
+.group{
+  height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #f5f5f5;
+  line-height: 60rpx;
+}
+
+.group_detail .combo{
+  display: block;
+  margin: 0 20rpx;
+  padding: 24rpx 38rpx;
+  font-size: 24rpx;
+  color: #333;
+  border-bottom: 3rpx solid #f5f5f5;
+}
+.group_detail .details{
+  margin: 0 20rpx;
+  display: flex;
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 20rpx;
+  padding-left: 38rpx;
+  position: relative;
+}
+.group_detail .details .details_num{
+  position: absolute;
+  right: 222rpx;
+}
+.group_detail .details .details_price{
+  position: absolute;
+  right: 38rpx;
+}
+.group_detail .sum_price,
+.group_detail .group_price{
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+  text-align: right;
+  padding-right: 56rpx;
+  margin-top: 10rpx;
+}
+.group_detail .group_price{
+  margin-bottom: 15rpx;
+}
+.group_detail .group_price text{
+  font-size: 30rpx;
+  color: red;
+}
+
+.buy_knows{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+  padding-bottom: 48rpx;
+}
+.buy_knows text{
+  font-size: 24rpx;
+  margin-top:10rpx;
+  padding-left: 58rpx;
+}
+.buy_knows .qi{
+  color: red;
+}
+.bg{
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+.buy{
+  height: 96rpx;
+  border-top: 1rpx solid #d6d6d6;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.buy .dingjing{
+  font-size: 24rpx;
+  position: absolute;
+  right: 230rpx;
+}
+.buy .dingjing text{
+  color: #ff1919;
+}
+.buy .dingjing text text{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.buy .yuding{
+  width: 190rpx;
+  height: 96rpx;
+  background-color: #ff1919;
+  line-height: 96rpx;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  right: 0;
+}
+
+.buy .yuding1{
+  background-color: #ccc;
+}

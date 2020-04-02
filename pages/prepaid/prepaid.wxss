@@ -1,0 +1,231 @@
+.red{
+  color: #ff1919;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.color_red{
+  color: #ff1919;
+}
+.border-10{
+  border-bottom: 3rpx solid #f5f5f5;
+}
+.border1{
+  border-bottom: 3rpx solid #f5f5f5;
+  padding-bottom: 20rpx;
+}
+.bold{
+  font-weight: bold;
+}
+.color_blue{
+  color: #0099ff;
+}
+
+.go_pay{
+  height: 200rpx;
+  background-color: #0099ff;
+  position: relative;
+}
+.go_pay .obli{
+  position: absolute;
+  font-size: 40rpx;
+  color: white;
+  font-weight: bold;
+  top: 46rpx;
+  left: 20rpx;
+}
+
+.go_pay .cancel{
+  font-size: 26rpx;
+  color: white;
+  position: absolute;
+  top: 104rpx;
+  left: 20rpx;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.pay_name{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3rpx solid #f5f5f5;
+  position: relative;
+}
+.pay_name .name{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  padding: 20rpx;
+}
+.pay_name .tip{
+  width: 136rpx;
+  height: 32rpx;
+  line-break: 36rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  font-size: 20rpx;
+  border: 3rpx solid #0099ff;
+  border-radius: 10rpx;
+  color: #0099ff;
+}
+.pay_name button{
+  position: absolute;
+  right: 20rpx;
+  top: 14%;
+  transform: translateY(-50%);
+  background-color: #ff1919;
+  font-size: 24rpx;
+  color: white;
+}
+
+/*使屏幕变暗 */
+.commodity_screen {
+ width: 100%;
+ height: 100%;
+ position: fixed;
+ top: 0;
+ left: 0;
+ background: #000;
+ opacity: 0.2;
+ overflow: hidden;
+ z-index: 1000;
+ color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+ width: 100%;
+ overflow: hidden;
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ z-index: 2000;
+ background: #fff;
+ padding-top: 20rpx;
+}
+
+.commodity_attr_box text{
+  padding: 50rpx 40rpx;
+}
+
+.radio-group .radio{
+  display: block;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+  margin-left: 40rpx;
+  position: relative;
+}
+.radio-group .radio radio{
+  transform:scale(0.7);
+  color: #0099ff;
+  position: absolute;
+  right: 40rpx;
+}
+.commodity_attr_box button{
+  margin-top: 66rpx;
+  width: 156rpx;
+  height: 60rpx;
+  background-color: #0099ff;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: white;
+  margin-bottom: 20rpx;
+}
+
+.content .bianhao{
+  padding: 40rpx 20rpx;
+  font-size: 40rpx;
+  color: #000;
+  font-weight: bold;
+  border-bottom: 3rpx solid #f5f5f5;
+}
+
+.content .money{
+  color: #666;
+  padding: 20rpx 0 15rpx 20rpx;
+  position: relative;
+  font-size: 26rpx;
+}
+.content .money .m{
+  position: absolute;
+  right: 20rpx;
+}
+
+.content .tips{
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  border: 3rpx solid #f5f5f5;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+}
+.content .tips text{
+  font-size: 28rpx;
+}
+
+.content .tips .re_rules{
+  width: 100%;
+  font-size: 28rpx;
+  margin: 6rpx 0;
+}
+
+.content .tips .re_rulesL{
+  float: left;
+}
+
+.content .tips .re_rulesR{
+  float: left;
+  width: 516rpx;
+}
+
+.content .ziliao{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3rpx solid #f5f5f5;
+  border-top: 3rpx solid #f5f5f5;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+}
+.content .ziliao text{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+
+.content .date{
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+}
+.content .date text{
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.bg{
+  height: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.call{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 20rpx 10rpx 20rpx;
+  font-size: 28rpx;
+}
+.call text{
+  padding-bottom: 10rpx;
+}
+.show{
+  display: flex;
+  margin:0 20rpx;
+}
+.show image{
+  width:220rpx;
+  height:220rpx;
+}
+.show_text{
+  display: flex;
+  flex-direction:column;
+  font-size:26rpx;
+  margin-left:20rpx;
+}

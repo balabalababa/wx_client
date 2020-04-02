@@ -1,0 +1,61 @@
+.bg {
+  width: 100%;
+  height: 20rpx;
+  background: #eee;
+}
+.banner{
+  height:532rpx;
+  background:#ccc;
+}
+.banner image{
+  width:100%;
+  height:100%;
+}
+.good-name{
+  font-size:30rpx;
+  padding:20rpx;
+  font-weight:500;
+}
+.good-name image{
+  margin-right: 10rpx;
+  width:40rpx;
+  height:40rpx;
+}
+.good-name .text{
+  display: flex;
+  align-items: center;
+  margin-top:20rpx;
+  color:orange;
+}
+.distro{
+  padding:20rpx;
+  font-size:30rpx;
+  color:#666;
+  margin-bottom:80rpx;
+}
+.dis-title{
+  font-size:35rpx;
+  font-weight:bold;
+  border-left:3px solid orange;
+  padding:0 20rpx;
+  color:#000;
+}
+.name,specil{
+  margin:30rpx 0;
+}
+.title{
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn{
+  width:100%;
+  color:#fff;
+  text-align: center;
+  font-weight:600;
+  background:green;
+  position: fixed;
+  bottom:0;
+  height:80rpx;
+  line-height:80rpx;
+}

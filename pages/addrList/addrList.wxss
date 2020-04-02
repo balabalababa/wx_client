@@ -1,0 +1,98 @@
+.foot {
+  border-top: 1px solid #666;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background:#fff;
+}
+
+.foot button {
+  height: 90rpx;
+  background: green;
+  font-size: 36rpx;
+  color: #fff;
+  margin: 20rpx 30rpx;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 30rpx;
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  border-bottom: 1px solid #666;
+}
+.head view{
+  display:flex;
+align-items:center;
+
+}
+.head image{
+  width:33rpx;
+  height:40rpx;
+  margin-right:5rpx;
+}
+.head .address{
+  width:28rpx;
+}
+.container {
+  margin: 0 30rpx;
+}
+
+.container .addr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #666;
+  padding: 20rpx 0;
+}
+
+.container .addr .appli{
+  display: flex;
+  align-items: center;
+  margin:0 20rpx;
+}
+.container .addr .appli .my_li image{
+  width:33rpx;
+  height:33rpx;
+}
+.container .addr .appli text{
+  width:34rpx;
+  height:34rpx;
+  border-radius:50%;
+  border:1px solid #ccc;
+}
+.container .addr .appli image{
+  width:30rpx;
+  height:30rpx;
+}
+.addpic{
+  position:fixed;
+  top:15%;
+  left:33%;
+  width:287rpx;
+  height:282rpx;
+}
+.addr .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.addr .tag {
+  font-size: 20rpx;
+  font-weight: 400;
+  border: 1px solid green;
+  color: green;
+}
+
+.addr .detail {
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.addr .person {
+  font-size: 28rpx;
+}

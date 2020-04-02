@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/points/contract/contract",
+    "pages/points/checkAdr/checkAdr",
+    "pages/points/deliveryAddress/deliveryAddress",
+    "pages/points/userPhone/userPhone",
+    "pages/points/points",
+    "pages/points/task/task",
+    "pages/points/pointDetail/pointDetail",
+    "pages/points/record/record",
+    "pages/profile/profile",
+    "pages/list/list",
+    "pages/order/order",
+    "pages/product/product",
+    "pages/brand/brand",
+    "pages/tuangou/tuangou",
+    "pages/choose/choose",
+    "pages/submit/submit",
+    "pages/obligation/obligation",
+    "pages/cancel/cancel",
+    "pages/prepaid/prepaid",
+    "pages/calendar/calendar",
+    "pages/assess/assess",
+    "pages/refund/refund",
+    "pages/evaluation/evaluation",
+    "pages/refunded/refunded",
+    "pages/results/results",
+    "pages/comments/comments",
+    "pages/re_details/re_details",
+    "pages/all/all",
+    "pages/allComments/allComments",
+    "pages/vouchers/vouchers",
+    "pages/authorize/authorize",
+    "pages/pro_allcomments/pro_allcomments",
+    "pages/new_product/new_product",
+    "pages/allAddress/allAddress",
+    "pages/card/card",
+    "pages/myCard/myCard",
+    "pages/addrList/addrList",
+    "pages/newAddr/newAddr",
+    "pages/newindex/newindex",
+    "pages/points/rules/rules",
+    "pages/adver/adver",
+    "pages/infoJoin/index"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "calendar": {
+      "version": "1.1.3",
+      "provider": "wx92c68dae5a8bb046"
+    },
+    "chooseLocation": {
+      "version": "1.0.2",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "轻松装补单",
+    "backgroundColor": "#bcc0c9",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#7ec052",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/home.png",
+        "selectedIconPath": "assets/home-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/profile.png",
+        "selectedIconPath": "assets/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/home/home",
+        "pages/video/video"
+      ],
+      "plugins": {
+        "live-player-plugin": {
+          "version": "1.0.3",
+          "provider": "wx2b03c6e691cd7370"
+        }
+      }
+    }
+  ]
+}
