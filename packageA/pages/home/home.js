@@ -57,6 +57,7 @@ Page({
         console.log(v)
         // "errcode": 0, // errcode=0代表成功；errcode=1代表未创建直播房间
         let arr = JSON.parse(v.data.msg).room_info ;
+        console.log(arr)
         let lives = [
           [],
           [],
@@ -131,7 +132,7 @@ Page({
         },
         success: (v) => {
           let huifang=JSON.parse(v.data.msg).live_replay
-          room.video =huifang[huifang.length-1].media_url;
+          room.video =huifang.splice(1);
           wx.request({
             url: global.apiUrl + 'user/updetLive',
             method: 'post',

@@ -19,14 +19,14 @@
   <view class="nav_item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">
     <image wx:if="{{currentTab==3}}" src='../../assets/icons/o_active_4.jpg' data-current="3" bindtap="swichNav"/>
     <image wx:else src='../../assets/icons/o_appraise.png' data-current="3" bindtap="swichNav"/>
-    <text data-current="3" bindtap="swichNav">待评价</text>
-      <view class='num {{commentnum>0?"show":"hide"}}' data-current="1" bindtap="swichNav">{{commentnum}}</view>
+    <text data-current="3" bindtap="swichNav">待成交</text>
+      <view class='num {{refundnum>0?"show":"hide"}}' data-current="1" bindtap="swichNav">{{refundnum}}</view>
   </view>
-  <!-- <view class="nav_item {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">
+  <view class="nav_item {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">
     <image wx:if="{{currentTab==4}}" src='../../assets/icons/o_active_5.jpg' data-current="4" bindtap="swichNav"/>
     <image wx:else src='../../assets/icons/o_service.png' data-current="4" bindtap="swichNav"/>
-    <text data-current="4" bindtap="swichNav">售后</text>
-  </view> -->
+    <text data-current="4" bindtap="swichNav">待评价</text>
+  </view>
 </view>
 
 <view class='no_see'></view>
@@ -47,7 +47,7 @@
         </view>
         <view class="status">{{item.orderStatus}}</view>
         <navigator open-type="redirectTo" wx:if="{{item.orderStatus == '待付款'}}" class='go' url='/pages/obligation/obligation?orderId={{item.orderNo}}'>付款</navigator>
-        <navigator open-type="redirectTo" wx:elif="{{item.orderStatus == '待评价'}}" class='go' url='/pages/comments/comments?orderId={{item.orderNo}}'>去评价</navigator>
+        <!-- <navigator open-type="redirectTo" wx:elif="{{item.orderStatus == '已完成'}}" class='go' url='/pages/finish/finish?orderId={{item.orderNo}}'>去评价</navigator> -->
     </view>
     </view>
   </swiper-item>
@@ -87,28 +87,9 @@
         </view>
     </navigator>
   </swiper-item>
-
   <swiper-item>
-    <view wx:for="{{orders}}" wx:key="id">
-        <view class='item' wx:if="{{item.orderStatus=='待评价'}}">
-          <image src="{{item.productTitleImage}}" mode='aspectFill'/>
-          <view class="meta">
-            <text class="name">{{item.productName}}</text>
-            <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
-            <view class='n_m'>
-              <text class='number'>数量：{{item.orderProductNum}}套</text>
-              <text class="money">付款：￥{{item.orderTotalMoney}}元</text>
-            </view>
-          </view>
-          <view class="status">{{item.orderStatus}}</view>
-          <navigator open-type="redirectTo" url='/pages/comments/comments?orderId={{item.orderNo}}' class='go'>去评价</navigator>
-        </view>
-    </view>
-  </swiper-item>
-
-  <swiper-item>
-    <view wx:for="{{orders}}" wx:key="id">
-        <view id="gotoid" data-hi="{{item.orderStatus}}" data-orderId='{{item.orderNo}}' bindtap='goto' class='item' wx:if="{{ item.orderStatus=='已退款'}}">
+    <navigator open-type="redirectTo" url="/pages/prepaid/prepaid?orderId={{item.orderNo}}" wx:for="{{orders}}" wx:key="id">
+        <view id="gotoid" data-hi="{{item.orderStatus}}" data-orderId='{{item.orderNo}}'  class='item' wx:if="{{item.orderStatus=='待成交'}}">
           <image src="{{item.productTitleImage}}" mode='aspectFill'/>
           <view class="meta">
             <text class="name">{{item.productName}}</text>
@@ -120,7 +101,23 @@
           </view>
           <view class="status">{{item.orderStatus}}</view>
         </view>
-      </view>
+      </navigator>
+  </swiper-item>
+  <swiper-item>
+    <navigator wx:for="{{orders}}" wx:key="id" open-type="redirectTo" url='/pages/finish/finish?orderId={{item.orderNo}}'>
+        <view  class='item' wx:if="{{item.orderStatus=='待评价'}}" >
+          <image src="{{item.productTitleImage}}" mode='aspectFill'/>
+          <view class="meta">
+            <text class="name">{{item.productName}}</text>
+            <text class="youhui">有效期：{{item.orderStopDate}} 24:00前</text>
+            <view class='n_m'>
+              <text class='number'>数量：{{item.orderProductNum}}套</text>
+              <text class="money">付款：￥{{item.orderTotalMoney}}元</text>
+            </view>
+          </view>
+          <view class="status">{{item.orderStatus}}</view>
+        </view>
+    </navigator>
   </swiper-item>
 
 

@@ -1,14 +1,10 @@
 <view class='go_pay'>
-	<text class='obli'>{{informations.orderStatus==6?'拒绝退款':'已付款'}}</text>
-	<text class='cancel'>门店出示订单享受活动优惠，并核销或确认成交</text>
-	<!-- <block wx:if="{{informations.orderStatus!=8}}"><text class='cancel'>还剩{{endTime}}自动转入待成交</text></block>
-	<block wx:else></block> -->
+	<text class='obli'>已完成订单</text>
+
 </view>
-<view class="ercode">
-	<image src="{{imgUrl}}"></image>
-</view>
+
 <view class='content'>
-	<text class='bianhao'>订单编号：{{orderId}} </text>
+	<text class='bianhao'>订单编号：{{orderId}}</text>
 	<view class='pay_name'>
 		<text class='name'>{{informations.brandName}}</text>
 		<view class="show">
@@ -17,44 +13,34 @@
 			</view>
 			<view class="show_text">
 				<text class="name" style="padding:0;margin:20rpx 0;">{{informations.productName}}</text>
-				<text wx:if="{{list.length>0}}">已选择：<text wx:for='{{list}}' wx:key="index"> {{item.content}}</text></text>
+				<text wx:if='{{list.length>0}}'>已选择：<text wx:for='{{list}}' wx:key="index"> {{item.content}}</text></text>
+
 			</view>
 		</view>
 		<view class="btn_group">
-
-			<view class="comm" bindtap="endGood">
-				确认成交
-			</view>
-			<block wx:if="{{informations.orderStatus!=8}}">
+			<block wx:if="{{informations.appraise==1}}">
 				<view class="refun">
-					<navigator url="/pages/refunedDesc/refunedDesc?orderNo={{orderId}}">申请退款</navigator>
+					已评论
 				</view>
 			</block>
 			<block wx:else>
-				<view class="refun" bindtap="handleCall">
-					申请退单
+				<view bindtap="goto">点击评论</view>
+			</block>
+
+			<block wx:if="{{contaractFlag}}">
+				<view class="refun">
+					已上传
 				</view>
 			</block>
+			<block wx:else>
+				<view class="comm">
+					<navigator url="/pages/points/contract/contract?orderNo={{orderId}}">上传合同</navigator>
+				</view>
+			</block>
+
 		</view>
+
 	</view>
-
-	<!--屏幕背景变暗的背景 -->
-	<!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view> -->
-	<!--弹出框 -->
-	<!-- <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-		<text>退款原因：</text>
-		<form bindsubmit="formSubmit" bindreset="formReset">
-			<input style='display:none' name="orderNo" value='{{orderId}}' />
-			<radio-group class="radio-group" bindchange="radioChange">
-				<label class="radio" wx:for="{{items}}" wx:key="id">
-					{{item.value}}
-					<radio name="refund_desc" value="{{item.value}}" checked="{{item.checked}}" />
-				</label>
-			</radio-group>
-			<button formType="submit">提交</button>
-		</form>
-	</view> -->
-
 
 
 
@@ -64,8 +50,8 @@
 	</view>
 
 	<view class='money border-10'>
-		<text>已付款</text>
-		<text class='m red'>¥{{informations.orderRealTotalMoney}}</text>
+		<text>订金</text>
+		<text class='m red'>¥{{informations.orderTotalMoney}}</text>
 	</view>
 
 	<view class='tips'>
@@ -84,20 +70,31 @@
 		<view class='re_rules'>
 			<view class='re_rulesL'>通用门店：</view>
 			<view class='re_rulesR'>
-				<view wx:for='{{informations.brandStoreName}}' wx:key='id'>
-					<view class="store"> <text class="store_text">{{item.storeName+':'+item.storePhone}}</text> <text class="store_tip" data-phone="{{item.storePhone}}" bindtap="handleCall" >拨打</text> </view>
-					<view class="store"> <text class="store_text">{{item.storeAddress}}</text> <text class="store_tip" data-address="{{item.storeAddress}}" bindtap="handleAddress" >复制</text></view>
-				</view>
+				<text style='display:block;' wx:for='{{informations.brandStoreName}}' wx:key='id'>{{item.storeName+":"+item.storePhone}}</text>
 			</view>
 		</view>
 		<view class='re_rules'>
 			<view class='re_rulesL'>购买数量：</view>
 			<view class='re_rulesR'>{{informations.orderProductNum}}套</view>
 		</view>
-		<!-- <view class='border1 re_rules'>
+		<!-- <view class='re_rules'>
       <view class='re_rulesL'>套餐包含：</view>
       <view class='re_rulesR'>{{informations.includeWhat}}</view>
     </view> -->
+
+		<view class='instructions border1'>
+			<text style='font-weight:bold;'>说明</text>
+			<view class='re_rules'>
+				<view class='re_rulesL'>折扣：</view>
+				<view class='re_rulesR'>{{informations.productExplain}}</view>
+			</view>
+
+			<view class='re_rules'>
+				<view class='re_rulesL'>服务：</view>
+				<view class='re_rulesR'>{{informations.productService}}</view>
+			</view>
+		</view>
+
 		<view class='re_rules'>
 			<view class='re_rulesL'>订单规则：</view>
 			<view class='re_rulesR'>

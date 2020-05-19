@@ -23,15 +23,23 @@
 .go_pay{
   height: 200rpx;
   background-color: #0099ff;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 20rpx;
+  justify-content: space-around;
 }
+
 .go_pay .obli{
-  position: absolute;
   font-size: 40rpx;
   color: white;
   font-weight: bold;
-  top: 50%;
-  transform: translateY(-50%);
+}
+
+.go_pay .cancel{
+  font-size: 26rpx;
+  color: white;
+  position: absolute;
+  top: 104rpx;
   left: 20rpx;
 }
 
@@ -63,7 +71,22 @@
   border-radius: 10rpx;
   color: #0099ff;
 }
-
+.pay_name .btn_group{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10rpx;
+}
+.pay_name .btn_group view{
+  padding:10rpx 20rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  border:1px solid #ff5a19;
+  color:#ff5a19;
+}
+.pay_name .btn_group .refun{
+  color:#999;
+  border-color:#999;
+}
 .content .bianhao{
   padding: 40rpx 20rpx;
   font-size: 40rpx;
@@ -92,7 +115,7 @@
   padding: 10rpx 20rpx;
 }
 .content .tips text{
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 .content .tips .re_rules{
   width: 100%;
@@ -114,7 +137,7 @@
 .content .tips .instructions{
   display: flex;
   flex-direction: column;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
 }
 
 .content .tips .instructions text{
@@ -130,7 +153,7 @@
 }
 .content .ziliao text{
   margin-top: 10rpx;
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 
 .content .date{
@@ -139,7 +162,7 @@
   padding: 10rpx 20rpx 20rpx 20rpx;
 }
 .content .date text{
-  font-size: 26rpx;
+  font-size: 28rpx;
   margin-top: 10rpx;
 }
 
@@ -152,7 +175,7 @@
   display: flex;
   flex-direction: column;
   padding: 20rpx 20rpx 10rpx 20rpx;
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 .call text{
   padding-bottom: 10rpx;

@@ -109,6 +109,8 @@
 .content .tips .re_rulesR{
   float: left;
   width: 516rpx;
+  display: flex;
+  flex-direction: column;
 }
 
 .content .ziliao{

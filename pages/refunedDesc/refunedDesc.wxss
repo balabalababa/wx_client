@@ -1,0 +1,44 @@
+.refund{
+  padding:20rpx;
+  color:rgb(109, 109, 109);
+}
+.section__title{
+  font-size: 35rpx;
+  color: #000;
+  font-weight: blod;  
+}
+.section__title text{
+  color:red;
+}
+.section{
+  display: flex;
+  border-bottom:1px solid #ccc;
+  align-items: center;
+  padding:30rpx 0;
+}
+.section radio-group{
+  flex:1;
+  display: flex;
+}
+.section radio-group label{
+  width:50%;
+}
+.section_gap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:20rpx 0;
+}
+.section_gap radio-group{
+  display: flex;
+  flex-direction: column;
+}
+.section_gap radio-group label{
+  padding: 10rpx 0;
+}
+textarea{
+  border: 1px solid #ccc;
+}
+button{
+  width: 100%;
+}

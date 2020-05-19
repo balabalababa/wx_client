@@ -60,7 +60,7 @@ Page({
           'content-type': 'application/x-www-form-urlencoded',
         },
         data: {
-          cityId: 3,
+          cityId: getApp().globalData.cityId,
           code: this.data.code,
           userPhone: this.data.phone,
           wxOpenid: getApp().globalData.openid

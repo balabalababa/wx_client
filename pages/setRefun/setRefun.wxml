@@ -1,0 +1,76 @@
+<block >
+	<view class='content'>
+		<text class='bianhao'>订单编号：{{orderNo}} </text>
+		<view class='pay_name'>
+			<text class='name'>{{informations.brandName}}</text>
+			<view class="show">
+				<view>
+					<image src="{{productTitleImgList}}"></image>
+				</view>
+				<view class="show_text">
+					<text class="name" style="padding:0;margin:20rpx 0;">{{informations.productName}}</text>
+					<text wx:if="{{list.length>0}}">已选择：<text wx:for='{{list}}' wx:key="index"> {{item.content}}</text></text>
+				</view>
+			</view>
+			<view class="flag" wx:if="{{orderStatus!=2}}">
+			{{orderStatus==3?'已退款':'不退款'}}
+			</view>
+		</view>
+
+		<view class='money'>
+			<text>订单总价</text>
+			<text class='m'>{{informations.productPrice}}</text>
+		</view>
+
+		<view class='money border-10'>
+			<text>已付款</text>
+			<text class='m red'>¥{{informations.orderRealTotalMoney}}</text>
+		</view>
+
+
+
+		<view class='ziliao'>
+			<text class='bold'>业主：{{informations.userName}}       {{informations.userPhone}}</text>
+			<text>地址：{{informations.userAddress}}</text>
+			<view class="callPhone">
+			<text  bindtap="call" >联系业主</text>
+			</view>
+		</view>
+
+		<view class='date'>
+			<text>下单时间：{{informations.orderCreateTime}}</text>
+      	<text>退单时间：{{informations.createTime}}</text>
+        	<text>退单理由：{{informations.refundDesc.store+';'+informations.refundDesc.contact+';'+informations.refundDesc.desc+"-"+(informations.refundDesc.textarea?informations.refundDesc.textarea:'')}}</text>
+			<text>支付方式：在线支付</text>
+			<!-- <text>供应商：{{informations.name}}</text> -->
+		</view>
+	</view>
+
+	<view class='bg'></view>
+  <view class="btn_group" wx:if="{{orderStatus==2}}">
+	<view  bindtap="refuned" class="agree" >同意</view>
+  <view  bindtap="rejuestRefund">不同意</view>
+  </view>
+<view class='toast-box' hidden='{{!ifName}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>驳回理由</text>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input'>
+                    <input placeholder='请输入理由' bindinput='setValue'></input>
+                </view>
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button catchtap='cancel'>取消</button>
+                </view>
+                <view class='button2'>
+                    <button catchtap='confirm'>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</block>

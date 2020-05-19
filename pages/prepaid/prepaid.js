@@ -5,23 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModalStatus:false,
-
-    items: [
-      { name: '1', value: '1、买错了/买多了' },
-      { name: '2', value: '2、商家停业/装修/转让'},
-      { name: '3', value: '3、商家营业但不接待' },
-      { name: '4', value: '4、时间有变、没时间消费' },
-      { name: '5', value: '5、去过了不太满意' },
-      { name: '6', value: '6、商家说可以直接以团购价到店消费' },
-      { name: '7', value: '7、其他' },
-    ],
-    orderId:"",
-    informations:[],
-    reason:"",
+    orderId: "",
+    informations: [],
     productTitleImgList: '',
-    list: ''
-
+    list: '',
+    imgUrl: '',
+    endTime:'',
+    phone:'400-091-0090'
   },
 
   //显示对话框
@@ -71,7 +61,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  var orderId = options.orderId
+    var orderId = options.orderId
+    // 获取二维码
+    let _this = this;
+    wx.request({
+      url: getApp().globalData.apiUrl + 'user/getWriteOff',
+      method: "POST",
+      responseType: 'arraybuffer',
+      data: {
+        scene: options.orderId,
+        page: 'pages/control/control'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: res => {
+        console.log(res.data)
+        var base64 = wx.arrayBufferToBase64(res.data);
+        _this.setData({
+          imgUrl: "data:image/PNG;base64," + base64
+        })
+      }
+    })
     this.setData({
       orderId: orderId
     })
@@ -88,40 +99,23 @@ Page({
         })
       }
       console.log("创建时间" + this.data.orderCreateTime)
+      //距离待成交时间
+      let endTime = (res.data.data.orderStopDate - new Date())/1000;
+      if(endTime>0){
+        let endD=parseInt(endTime/24/3600);
+        let endH=parseInt((endTime%(24*3600))/3600);
+        _this.setData({
+          endTime:endD+'天'+endH+'时'
+        })
+      }
       //开始日期转换
-      var startdate = res.data.data.orderStartDate
-      var date = new Date(startdate)
-
-      // console.log(date)
-      //年
-      var Y = date.getFullYear();
-      //月
-      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-      //日
-      var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-      var time = Y + "年" + M + "月" + D + "日"
-      //console.log(starttime)
-      res.data.data.orderStartDate = time
-
+      res.data.data.orderStartDate = this.changeTime(res.data.data.orderStartDate)
       //结束日期转换
-      var startdate = res.data.data.orderStopDate
-      var date = new Date(startdate)
-
-      // console.log(date)
-      //年
-      var Y = date.getFullYear();
-      //月
-      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-      //日
-      var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-      var time = Y + "年" + M + "月" + D + "日"
-      //console.log(starttime)
-      res.data.data.orderStopDate = time
+      res.data.data.orderStopDate = this.changeTime(res.data.data.orderStopDate)
 
       //下单时间转换
       var startdate = res.data.data.orderCreateTime
       var date = new Date(startdate)
-
       // console.log(date)
       //年
       var Y = date.getFullYear();
@@ -133,108 +127,150 @@ Page({
       var F = date.getMinutes();
       var S = date.getSeconds();
       var time = Y + "-" + M + "-" + D + " " + H + ":" + F + ":" + S
-      //console.log(starttime)
+
       res.data.data.orderCreateTime = time
-   
-      this.setData({
-        informations: res.data.data,
-        list: res.data.data.orderRemarks == "undefined" ? [] : JSON.parse(res.data.data.orderRemarks)
+      let informations = res.data.data
+      fetch('itempage/store/' + res.data.data.brandID).then(respon => {
+        console.log(respon.data)
+        informations.brandStoreName = respon.data;
+        this.setData({
+          informations: informations,
+          list: informations.orderRemarks == "undefined" ? [] : JSON.parse(informations.orderRemarks)
+        })
+        if(respon.data.length>0){
+          _this.setData({
+            phone:respon.data[0].storePhone
+          })
+        }
       })
-      fetch('itempage/' + this.data.informations.productID).then(res => {
+      fetch('itempage/' + informations.productID).then(res => {
         this.setData({
           productFlag: res.data.productFlag,
-          productTitleImgList: res.data.productTitleImgList[0]
+          productTitleImgList: res.data.productTitleImgList[0],
+          brandId: res.data.brandId
         })
+
       })
     })
   },
-  radioChange:function(e){
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-    this.setData({
-      reason: e.detail.value
-    })
-    
-  },
-  formSubmit:function(e){
-    var that = this
-    if(!that.data.reason)
-    {
-      wx.showToast({
-        title: '退款理由必选',
-      })
-      return false;
-    }
-       
-    wx.request({
-      url: 'https://mall.qszhuang.com/pay/wxRefund',
-      data:{
-        orderNo: e.detail.value.orderNo,
-        refund_desc: that.data.reason
-      },
-      success:function(e){
-        console.log(e)
-        if (e.data.status == 500){
-          wx.showToast({
-            title: '退款申请失败',
+  endGood:function(){
+    let _this=this;
+    wx.showModal({
+      title: '已签合同或已与商家联系过确认成交',
+      confirmText:"是",
+      cancelText:"否",
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: getApp().globalData.apiUrl+'user/meWrite',
+            method:'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            data:{orderId:_this.data.informations.orderID},
+            success:(res)=>{
+              if(res.data.status==200){
+                wx.navigateTo({
+                  url: "/pages/finish/finish?orderId="+_this.data.orderId,
+                })
+              }
+              else{
+                wx.showToast({
+                  title: '成交失败',
+                  icon:'loading'
+                })
+              }
+            }
           })
-        } else if (e.data.status == 200){
-          wx.redirectTo({
-            url: '/pages/refund/refund?orderId=' + that.data.orderId,
-          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
       }
     })
+    
   },
-
-
+  //拨打电话
+  handleCall: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone||this.data.phone
+    })
+  },
+  handleAddress: function (e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.address,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+  },
+  //转换时间
+  changeTime: function (time) {
+    var date = new Date(time)
+    // console.log(date)
+    //年
+    var Y = date.getFullYear();
+    //月
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    var H = date.getHours();
+    var F = date.getMinutes();
+    var S = date.getSeconds();
+    var time = Y + "-" + M + "-" + D;
+    return time;
+  },
 
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

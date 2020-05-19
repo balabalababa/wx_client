@@ -262,7 +262,7 @@ Page({
         tagString += index +" · ";
         tagArray.push(tag)
       }
-      //console.log(tagArray)
+      console.log(tagArray)
       
       this.setData({
         tagString: tagString,

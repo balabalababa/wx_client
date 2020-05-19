@@ -1,6 +1,6 @@
 <view>
   <view class="section tc">
-  <video id="myVideo" poster="{{room.cover_img}}" title="{{room.name}}" src="{{room.video}}" controls></video>
+  <video class="video" poster="{{room.cover_img}}" title="{{room.name}}" wx:for="{{room.video}}" src="{{item.media_url}}"  controls></video>
 </view>
 
 <view>

@@ -107,5 +107,5 @@
       <text class='liulan'>浏览  {{item.appraisal_frequency}}    {{item.appraisal_createdate}}</text>
     </view>
   </navigator>
-  <navigator url='/pages/allComments/allComments?brandid={{brand.brandid}}' class="loadmore">查看全部评价 ></navigator>
+  <navigator url='/pages/allComments/allComments?brandid={{brand.brandID}}' class="loadmore">查看全部评价 ></navigator>
 </view>

@@ -123,8 +123,26 @@
 .content .tips .re_rulesR{
   float: left;
   width: 516rpx;
+  display: flex;
+  flex-direction: column;
 }
-
+.content .tips .re_rulesR .store {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .tips .re_rulesR .store .store_text{
+  flex:10;
+  margin-right:10rpx;
+}
+.content .tips .re_rulesR .store .store_tip {
+  border: 1px solid #ccc;
+  padding: 5rpx 8rpx;
+  border-radius: 10rpx;
+  width: 40rpx;
+  text-align: center;
+  flex:2;
+}
 .content .tips .instructions{
   display: flex;
   flex-direction: column;

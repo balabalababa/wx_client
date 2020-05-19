@@ -12,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     wx.request({
       url: global.apiUrl + 'user/selectLive',
       method: 'post',
@@ -24,6 +23,7 @@ Page({
       },
       success: (res) => {
         let room = JSON.parse(res.data.data.neirong)
+        room.video.reverse()
         this.setData({
           room:  room
         })

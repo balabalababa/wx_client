@@ -1,0 +1,46 @@
+<block wx:if="{{openid}}">
+	<view class='content'>
+		<text class='bianhao'>订单编号：{{orderNo}} </text>
+		<view class='pay_name'>
+			<text class='name'>{{informations.brandName}}</text>
+			<view class="show">
+				<view>
+					<image src="{{productTitleImgList}}"></image>
+				</view>
+				<view class="show_text">
+					<text class="name" style="padding:0;margin:20rpx 0;">{{informations.productName}}</text>
+					<text wx:if="{{list.length>0}}">已选择：<text wx:for='{{list}}' wx:key="index"> {{item.content}}</text></text>
+				</view>
+			</view>
+		</view>
+
+		<view class='money'>
+			<text>订单总价</text>
+			<text class='m'>{{informations.productPrice}}</text>
+		</view>
+
+		<view class='money border-10'>
+			<text>已付款</text>
+			<text class='m red'>¥{{informations.orderRealTotalMoney}}</text>
+		</view>
+
+
+
+		<view class='ziliao'>
+			<text class='bold'>业主：{{informations.userName}}       {{informations.userPhone}}</text>
+			<text>地址：{{informations.userAddress}}</text>
+		</view>
+
+		<view class='date'>
+			<text>下单时间：{{informations.orderCreateTime}}</text>
+			<text>支付方式：在线支付</text>
+			<!-- <text>供应商：{{informations.name}}</text> -->
+		</view>
+	</view>
+
+	<view class='bg'></view>
+	<button type="primary" bindtap="endGood">核销</button>
+</block>
+<block wx:else>
+目前没有权限，无法进行此操作或者订单已核销
+</block>

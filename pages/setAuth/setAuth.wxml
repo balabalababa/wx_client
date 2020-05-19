@@ -1,0 +1,2 @@
+
+<button type="primary" bindtap="become">成为核销人</button>

@@ -48,7 +48,7 @@
     <view class='re_rules'>
       <view class='re_rulesL'>通用门店：</view>
       <view class='re_rulesR'>
-        <text style='display:block;' wx:for='{{informations.brandStoreName}}' wx:key='id'>{{item}}</text>
+        <text style='display:block;' wx:for='{{informations.brandStoreName}}' wx:key='id'>{{item.storeName+":"+item.storePhone}}</text>
       </view>
     </view>
     <view class='re_rules'>
@@ -74,8 +74,12 @@
     </view>
 
     <view class='re_rules'>
-      <view class='re_rulesL'>退订规则：</view>
-      <view class='re_rulesR'>未发生服务或成交前可申请退款，一笔订单不支持部分退款，退款审核不超过7个工作日。</view>
+      <view class='re_rulesL'>订单规则：</view>
+			<view class='re_rulesR'>
+				<text>	1.到商家门店或者联系商家进行转单订金自动抵充货款</text>
+				<text>2.15天内未发生服务或成交前可申请退款，一旦退款即不享受轻松装直播间优惠政策 </text>
+				<text>3.退款审核不超过7个工作日 </text>
+			</view>
     </view>
   </view>
 

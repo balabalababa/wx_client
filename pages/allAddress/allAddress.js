@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Telephone:'4000910090',
     storts_information:''
   },
 
@@ -18,10 +17,8 @@ Page({
    */
   onLoad: function (options) {
     var brandid = options.brandid
-    console.log(brandid)
 
     fetch('itempage/store/' + brandid).then(res => {
-      console.log(res.data)
       this.setData({
         storts_information: res.data
       })
@@ -60,9 +57,9 @@ Page({
   },
 
   //打电话
-  tel: function () {
+  tel: function (e) {
     wx.makePhoneCall({
-      phoneNumber: this.data.Telephone,
+      phoneNumber: this.data.storts_information[e.currentTarget.dataset.index].storePhone,
     })
   },
 

@@ -1,9 +1,10 @@
-.nav{
+.nav {
   display: flex;
   border-bottom: 1rpx solid #d6d6d6;
   margin-top: 20rpx;
 }
-.nav .nav_item{
+
+.nav .nav_item {
   width: 20%;
   padding: 0 20rpx;
   display: flex;
@@ -11,8 +12,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  flex: 1;
 }
-.nav .nav_item .num{
+
+.nav .nav_item .num {
   position: absolute;
   width: 38rpx;
   height: 38rpx;
@@ -21,25 +24,27 @@
   font-size: 28rpx;
   color: white;
   text-align: center;
-  right: 20rpx;
-  top: -10rpx;
+  top: -13rpx;
+  right: 15px;
 }
-.nav .nav_item image{
+
+.nav .nav_item image {
   width: 56rpx;
   height: 50rpx;
 }
-.nav .nav_item text{
+
+.nav .nav_item text {
   font-size: 22rpx;
   margin: 10rpx 0 15rpx;
 }
 
-.cells{
+.cells {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.cells .bg{
+.cells .bg {
   width: 250rpx;
   height: 30rpx;
   border-bottom: 2rpx solid #000;
@@ -48,7 +53,8 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.cells .title{
+
+.cells .title {
   font-size: 28rpx;
   line-height: 61rpx;
   height: 61rpx;
@@ -59,63 +65,74 @@
   z-index: 999;
   color: #333333;
 }
-.cells .item{
+
+.cells .item {
   display: flex;
   border-bottom: 1rpx solid #eee;
   position: relative;
   background-color: #fff;
   height: 229rpx;
 }
-.cells .item image{
+
+.cells .item image {
   width: 168rpx;
   height: 168rpx;
   margin: 30rpx 20rpx;
   border-radius: 15rpx;
 }
-.cells .item .meta{
+
+.cells .item .meta {
   display: flex;
   flex-direction: column;
   font-size: 30rpx;
   padding-top: 37rpx;
 }
+
 .cells .item .meta .name {
   color: #333333;
   font-size: 29rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width:374rpx;
+  width: 374rpx;
 }
-.cells .item .meta .youhui{
+
+.cells .item .meta .youhui {
   color: #666666;
   font-size: 22rpx;
   margin-top: 23rpx;
 }
-.cells .item .meta .n_m{
+
+.cells .item .meta .n_m {
   margin-top: 27rpx;
 }
-.cells .item .meta .number{
+
+.cells .item .meta .number {
   font-size: 22rpx;
   color: #666;
   margin-right: 52rpx;
 }
-.cells .item .meta .money{
+
+.cells .item .meta .money {
   font-size: 22rpx;
   color: #666;
 }
-.cells .item .meta .money text{
+
+.cells .item .meta .money text {
   font-size: 34rpx;
   color: red;
   font-weight: bold;
 }
-.cells .item .status{
+
+.cells .item .status {
   font-size: 28rpx;
   position: absolute;
   right: 20rpx;
-  top:34rpx;
+  top: 34rpx;
   color: #666;
 }
-.cells .item .go{
+
+.cells .item .go {
   position: absolute;
   font-size: 26rpx;
   color: red;
@@ -126,17 +143,19 @@
   border-radius: 15rpx;
 }
 
-.on{ 
+.on {
   color: red;
-}  
-.show{
+}
+
+.show {
   display: block
 }
-.hide{
+
+.hide {
   display: none
 }
 
-.no_see{
+.no_see {
   height: 231rpx;
   width: 100%;
   background-color: red;

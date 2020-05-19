@@ -8,7 +8,7 @@
       <image src='../../assets/map_icon.jpg'/>
       <text>地图</text>
     </view>
-    <view class='phone' bindtap='tel'>
+    <view class='phone' bindtap='tel' data-index="{{index}}">
       <image src='../../assets/phone_icon.jpg'/>
       <text>客服</text>
     </view>

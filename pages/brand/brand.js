@@ -54,7 +54,7 @@ Page({
       this.setData({
         brand: res.data.data
       })
-      console.log('pin'+this.data.brand)
+      console.log(res.data.data)
     })
     //获取该品牌产品信息
     fetch('brpage/items/'+ id).then(res => {

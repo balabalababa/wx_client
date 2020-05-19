@@ -9,7 +9,6 @@ Page({
     gousenum: '',
     unpaynum: '',
     commentnum: '',
-    refundnum: '',
     showFlag:false
   },
 
@@ -44,10 +43,6 @@ Page({
   },
   onLoad: function(options) {
     let that = this
-    var unpaynum = 0
-    var gousenum = 0
-    var commentnum = 0
-    var refundnum = 0
     if (getApp().globalData.openid == "" || getApp().globalData.openid == null || getApp().globalData.openid == undefined){
       that.login()
     }
@@ -95,6 +90,9 @@ Page({
   },
   content(){
     let that=this;
+    var unpaynum = 0
+    var gousenum = 0
+    var commentnum = 0
     wx.login({
       success:function(res){
         wx.request({
@@ -108,7 +106,7 @@ Page({
           success: function (res) {
             for (var i = 0; i < res.data.data.length; i++) {
               var createdate = res.data.data[i]
-              if (createdate.orderStatus == -1) {
+              if (createdate.orderStatus == -1||createdate.orderStatus == 6) {
                 gousenum++
                 createdate.orderStatus = "已付款"
                 that.setData({
@@ -127,16 +125,6 @@ Page({
                 that.setData({
                   commentnum: commentnum
                 })
-              } else if (createdate.orderStatus == 1) {
-                createdate.orderStatus = "已完成"
-              } else if (createdate.orderStatus == 3) {
-                refundnum++
-                createdate.orderStatus = "已退款"
-                that.setData({
-                  refundnum: refundnum
-                })
-              } else {
-                createdate.orderStatus = 10
               }
             }
             // console.log(that.data.unpaynum)
@@ -151,12 +139,10 @@ Page({
     var unpaynum = 0
     var gousenum = 0
     var commentnum = 0
-    var refundnum = 0
     that.setData({
       commentnum: commentnum,
       unpaynum: unpaynum,
-      gousenum: gousenum,
-      refundnum: refundnum
+      gousenum: gousenum
     })
     if (getApp().globalData.openid == "" || getApp().globalData.openid == null || getApp().globalData.openid == undefined) {
       that.login()

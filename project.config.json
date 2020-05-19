@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.10.4",
 	"appid": "wx8a216ac4982d99d0",
 	"projectname": "qs_budan",
 	"isGameTourist": false,
@@ -39,7 +39,15 @@
 		},
 		"plugin": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "packageA/pages/home/home",
+					"pathName": "packageA/pages/home/home",
+					"query": "",
+					"scene": null
+				}
+			]
 		},
 		"game": {
 			"currentL": -1,
@@ -54,21 +62,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "评论",
-					"pathName": "pages/comments/comments",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "新产品页",
-					"pathName": "pages/new_product/new_product",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "pages/submit/submit",
-					"pathName": "pages/submit/submit",
-					"query": "",
+					"name": "pages/prepaid/prepaid",
+					"pathName": "pages/prepaid/prepaid",
+					"query": "orderId=632825681",
 					"scene": null
 				},
 				{
@@ -79,23 +75,16 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/points/points",
-					"pathName": "pages/points/points",
+					"id": 2,
+					"name": "pages/control/control",
+					"pathName": "pages/control/control",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/profile/profile",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/points/points",
-					"pathName": "pages/points/points",
+					"id": 3,
+					"name": "pages/comments/comments",
+					"pathName": "pages/comments/comments",
 					"query": "",
 					"scene": null
 				},
@@ -107,23 +96,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/chooseAddress/index",
-					"pathName": "pages/chooseAddress/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/newAddr/newAddr",
-					"pathName": "pages/newAddr/newAddr",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/",
-					"pathName": "packageA/pages/home/home",
+					"id": 5,
+					"name": "pages/comments/comments",
+					"pathName": "pages/comments/comments",
 					"query": "",
 					"scene": null
 				},
@@ -147,6 +122,55 @@
 					"pathName": "pages/infoJoin/index",
 					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": 14,
+					"name": "核销",
+					"pathName": "pages/control/control",
+					"query": "orderId=865501135",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "二维码",
+					"pathName": "pages/refund/refund",
+					"query": "name=1",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "pages/setAuth/setAuth",
+					"pathName": "pages/setAuth/setAuth",
+					"query": "scene=QSZ0443AAAA",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/refunedDesc/refunedDesc",
+					"pathName": "pages/refunedDesc/refunedDesc",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "pages/finish/finish",
+					"pathName": "pages/finish/finish",
+					"query": "orderId=794721631",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "pages/setRefun/setRefun",
+					"pathName": "pages/setRefun/setRefun",
+					"query": "scene=859513599",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "pages/points/contract/contract",
+					"pathName": "pages/points/contract/contract",
+					"query": "scene=008440784",
+					"scene": null
 				}
 			]
 		}

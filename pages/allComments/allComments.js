@@ -19,13 +19,14 @@ Page({
   },
 
 
-  loadMore(){
+  loadMore(id){
     if (!this.data.hasMore) return
 
     let { pageIndex, pageSize } = this.data
     const params = { page: ++pageIndex, limit: pageSize }
     console.log("页码：" + pageIndex + "-数量" + pageSize)
-    return fetch('brpage/appraisal/' + this.data.brandid, params).then(res => {
+    console.log(id)
+    return fetch('brpage/appraisal/' + id, params).then(res => {
       this.setData({
         num: res.data.msg
       })
@@ -60,12 +61,11 @@ Page({
    */
   onLoad: function (options) {
     var brandid = options.brandid
-    console.log(brandid)
     this.setData({
       brandid: brandid
     })
     //获取该品牌评论信息
-    this.loadMore();
+    this.loadMore(brandid);
   },
 
   /**   

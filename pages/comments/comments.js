@@ -2,14 +2,8 @@
 const fetch = require('../../app.js')
 var app = getApp();
 
-
 var adds = {}; 
-
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     star: 0,
     starMap: [
@@ -38,12 +32,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     var id = options.orderId
     console.log(id)
     this.setData({
       id: id
     })
-
   
   },
   chooseimage: function() {
@@ -74,9 +68,6 @@ Page({
       })
     }
   },
-
-
-
 
   // 删除图片
   deleteImg: function(e) {

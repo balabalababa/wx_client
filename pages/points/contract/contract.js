@@ -7,7 +7,8 @@ Page({
    */
   data: {
     imgUrl:'',
-    deUpload:''
+    deUpload:'',
+    orderNo:''
   },
   chooseImage:function(){
     let that=this;
@@ -20,7 +21,8 @@ Page({
     })
   },
   upload1(){
-    let that=this
+    let that=this;
+    console.log(getApp().globalData.cityId)
     wx.uploadFile({
       url: dataUrl.url + 'jf/contract/image', 
       filePath: that.data.imgUrl,
@@ -35,7 +37,9 @@ Page({
           },
           data: {
             image: data.msg,
-            wxOpenid: getApp().globalData.openid
+            wxOpenid: getApp().globalData.openid,
+            orderNo:that.data.orderNo,
+            cityId:getApp().globalData.cityId
           },
           success(res) {
             if (res.data.code == 1) {
@@ -73,6 +77,11 @@ Page({
     }
   },
   onLoad: function (options) {
+    if(options.orderNo){
+      this.setData({
+        orderNo:options.orderNo
+      })
+    }
     this.setData({
       deUpload: dataUrl.debounce(this.upload1, 2000)
     })

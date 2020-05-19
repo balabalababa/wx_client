@@ -8,7 +8,9 @@ Page({
     informations:[],
     orderId:"",
     productTitleImgList: '',
-    list: ''
+    list: '',
+    phone:'400-091-0090',
+    contaractFlag:''
   },
 
   /**
@@ -86,27 +88,29 @@ Page({
             list: informations.orderRemarks == "undefined"?[]:JSON.parse(informations.orderRemarks)
           })
           if(respon.data.length>0){
-            wx.showModal({
-              title: '退款请联系'+respon.data[0].storeName,
-              content: respon.data[0].storePhone,
-              success (res) {
-                if (res.confirm) {
-                  wx.makePhoneCall({
-                    phoneNumber: respon.data[0].storePhone,
-                  })
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
-              }
+            that.setData({
+              phone:respon.data[0].storePhone
             })
           } 
-         
         })
         
       })
     })
+    fetch('backstage/wxjf/getContract?orderNo='+orderId).then(res=>{
+      this.setData({
+        contaractFlag:res.data.msg=="true"?true:false
+      })
+    })
   },
 
+  goto:function(){
+    wx.navigateTo({
+      url:'/pages/comments/comments?orderId='+this.data.orderId,
+    })
+  },
+  onReady: function () {
+  
+  },
 
   /**
    * 生命周期函数--监听页面显示

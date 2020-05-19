@@ -41,7 +41,6 @@ Page({
   },
 
   onLoad: function(options) {
- 
     this.loadMore()
     var qqmapsdk = new QQMapWX({
       key: '7XWBZ-FWEK3-L7L34-YWV5P-HPMYF-SABDD' // 必填
@@ -78,7 +77,7 @@ Page({
               cityText: cityText,
               cityId: cityIdx
             })
-
+            getApp().globalData.cityId=cityIdx;
             // fetch('back/config/home/img/' + that.data.cityId).then(res => {
             //   var d = JSON.parse(res.data.data.configContent)
             //   console.log(d)
@@ -128,10 +127,6 @@ Page({
       }
 
     })
-    //console.log(this.data.cityId)
-    //console.log(this.data.cityText)
-
-
     wx.login({
       success: function(res) {
         wx.request({

@@ -34,7 +34,7 @@ Page({
         console.log(res.code)
         wx.request({
           url: 'https://mall.qszhuang.com/user/checkUserOrder',
-          // url:'http://192.168.0.175:8080/user/checkUserOrder',
+          // url:'http://192.168.0.173:8080/user/checkUserOrder',
           header: {
             'Content-type': 'application/x-www-form-urlencoded'
           },
@@ -89,9 +89,12 @@ Page({
               } else if (createdate.orderStatus == 1) {
                 createdate.orderStatus = "已完成"
               } 
-                else if (createdate.orderStatus == 3) {
-                refundnum++
+              else if (createdate.orderStatus == 3) {
                 createdate.orderStatus = "已退款"
+              } 
+                else if (createdate.orderStatus == 8) {
+                refundnum++
+                createdate.orderStatus = "待成交"
                 that.setData({
                   refundnum: refundnum
                 })
@@ -116,14 +119,13 @@ Page({
             that.setData({
               orders: orderList
             })
-            //console.log(that.data.orders.length)
+            console.log(that.data.orders)
 
             /** 
              * 获取系统信息 
              */
             wx.getSystemInfo({
               success: function(res) {
-                console.log(res)
                 var haha = that.data.orders.length * that.data.top
                 that.setData({
                   winWidth: res.windowWidth,
@@ -176,10 +178,6 @@ Page({
       wx.redirectTo({
         url: '/pages/obligation/obligation?orderId=' + e.currentTarget.dataset.orderid,
       })
-    } else if (e.currentTarget.dataset.hi == "待评价") {
-      wx.redirectTo({
-        url: '/pages/comments/comments?orderId=' + e.currentTarget.dataset.orderid,
-      })
     } else if (e.currentTarget.dataset.hi == "已退款") {
       wx.navigateTo({
         url: '/pages/refunded/refunded?orderId=' + e.currentTarget.dataset.orderid,
@@ -195,6 +193,11 @@ Page({
     }else if (e.currentTarget.dataset.hi == "拒绝退款") {
       wx.redirectTo({
         url: '/pages/prepaid/prepaid?orderId=' + e.currentTarget.dataset.orderid,
+      })
+    }
+    else  {
+      wx.redirectTo({
+        url: '/pages/finish/finish?orderId=' + e.currentTarget.dataset.orderid,
       })
     }
   },

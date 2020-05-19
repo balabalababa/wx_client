@@ -1,7 +1,7 @@
 const fetch = require('../../utils/fetch.js');
 var tcity = require("../../utils/citys.js");
-const url="https://mall.qszhuang.com/";
-// const url = "http://192.168.0.175:8080/";
+const url = "https://mall.qszhuang.com/";
+// const url = "http://192.168.0.173:8080/";
 var app = getApp()
 
 // 设置时间列表
@@ -40,25 +40,15 @@ Page({
     minusStatus: 'disabled',
     price: [],
     information: [],
-    provinces: [],
-    province: "",
-    citys: [],
-    city: "",
-    countys: [],
-    county: '',
     value: [0, 0, 0],
     values: [0, 0, 0],
     condition: false,
     hide: true,
     userInfo: [],
-    addressDetail: [],
     tags: [],
     subItems: [],
     stopdate: "",
     startdate: "",
-    text1: "",
-    text2: "",
-    text3: "",
     orderId: "",
     disabled: false,
     stock: "",
@@ -74,8 +64,6 @@ Page({
     delivery: '',
     // 时间
     time: '',
-    multiArray: [years, months, days],
-    multiIndex: [0, 9, 0],
     choose_year: '',
     date: "",
     date1: "",
@@ -174,7 +162,7 @@ Page({
     })
 
     var timestamp = Date.parse(that.data.date);
-    timestamp = (timestamp / 1000 + 2592000) * 1000;
+    timestamp = (timestamp / 1000 + 1296000) * 1000;
     var date = new Date(timestamp);
     console.log("当前时间：" + date);
     var year = date.getFullYear()
@@ -282,113 +270,6 @@ Page({
     })
     // console.log(this.data.information)
     that.userInfoInitial()
-
-    //设置默认的年份
-    that.setData({
-      choose_year: that.data.multiArray[0][0]
-    })
-  },
-  //获取时间日期
-  bindMultiPickerChange: function (e) {
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      multiIndex: e.detail.value
-    })
-    const index = this.data.multiIndex;
-    const year = this.data.multiArray[0][index[0]];
-    const month = this.data.multiArray[1][index[1]];
-    const day = this.data.multiArray[2][index[2]];
-    // console.log(`${year}-${month}-${day}-${hour}-${minute}`);
-    this.setData({
-      date1: year + '-' + month + '-' + day
-    })
-    console.log(this.data.date1);
-  },
-  //监听picker的滚动事件
-  bindMultiPickerColumnChange: function (e) {
-    //获取年份
-    if (e.detail.column == 0) {
-      let choose_year = this.data.multiArray[e.detail.column][e.detail.value];
-      console.log(choose_year);
-      this.setData({
-        choose_year
-      })
-    }
-    //console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-    if (e.detail.column == 1) {
-      let num = parseInt(this.data.multiArray[e.detail.column][e.detail.value]);
-      let temp = [];
-      if (num == 1 || num == 3 || num == 5 || num == 7 || num == 8 || num == 10 || num == 12) { //判断31天的月份
-        if (num == month) {
-          for (let i = day; i <= 31; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-        } else {
-          for (let i = 1; i <= 31; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-        }
-
-        this.setData({
-          ['multiArray[2]']: temp
-        });
-      } else if (num == 4 || num == 6 || num == 9 || num == 11) { //判断30天的月份
-        if (num == month) {
-          for (let i = day; i <= 30; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-        } else {
-          for (let i = 1; i <= 30; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-        }
-
-        this.setData({
-          ['multiArray[2]']: temp
-        });
-      } else if (num == 2) { //判断2月份天数
-        let year = parseInt(this.data.choose_year);
-        if (((year % 400 == 0) || (year % 100 != 0)) && (year % 4 == 0)) {
-          for (let i = 1; i <= 29; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-          this.setData({
-            ['multiArray[2]']: temp
-          });
-        } else {
-          for (let i = 1; i <= 28; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-          this.setData({
-            ['multiArray[2]']: temp
-          });
-        }
-      }
-    }
-    var data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex[e.detail.column] = e.detail.value;
-    this.setData(data);
   },
   /**
    * 生命周期函数--监听页面显示
@@ -396,7 +277,7 @@ Page({
   onShow: function () {
     if (this.data.price[3] != 2) {
       var timestamp = Date.parse(this.data.date);
-      timestamp = (timestamp / 1000 + 2592000) * 1000;
+      timestamp = (timestamp / 1000 + 1296000) * 1000;
       var date = new Date(timestamp);
 
       var year = date.getFullYear()
@@ -451,6 +332,7 @@ Page({
     var that = this
     wx.login({
       success: function (res) {
+        console.log(res)
         if (res.code) {
           //发起网络请求
           wx.request({
@@ -459,20 +341,8 @@ Page({
               code: res.code
             },
             success: function (res) {
-              console.log(res.data)
               that.setData({
                 userInfo: res.data
-              })
-              console.log(that.data.userInfo)
-              var add = that.data.userInfo.useraddress.split("-")
-              that.setData({
-                province: add[0],
-                city: add[1],
-                county: add[2],
-                addressDetail: add[3],
-                text1: that.data.userInfo.username,
-                text2: that.data.userInfo.userphone,
-                text3: add[3],
               })
             }
 
@@ -493,7 +363,7 @@ Page({
       })
       return false;
     }
-    if(that.data.money<=0){
+    if (that.data.money <= 0) {
       wx.showToast({
         title: '不可购买',
       })
@@ -528,6 +398,9 @@ Page({
             'content-type': 'application/x-www-form-urlencoded'
           },
           success(res) {
+            wx.showLoading({
+              title: '正在支付',
+            })
             getApp().globalData.openid = res.data.data;
             wx.request({
               url: url + 'pay/createUser',
@@ -539,7 +412,9 @@ Page({
                 openid: getApp().globalData.openid,
                 username: that.data.delivery.userName,
                 userphone: that.data.delivery.userPhone,
-                useraddress: that.data.delivery.addressContent
+                useraddress: that.data.delivery.addressContent,
+                nickName: that.data.userInfo.nickName,
+                protrait: that.data.userInfo.avatarUrl
               },
               success: function (res) {
                 console.log(res.data)
@@ -550,7 +425,7 @@ Page({
                   return false;
                 }
                 wx.request({
-                  url: url+'pay/wxpay',
+                  url: url + 'pay/wxpay',
                   data: {
                     openid: getApp().globalData.openid,
                     itemId: that.data.price[2],
@@ -559,8 +434,11 @@ Page({
                     voucherId: that.data.voucherId,
                     orderRemarks: that.data.list
                   },
-                  success: function(res) {
-                    console.log(res.data)
+                  success: function (res) {
+                    console.log(res.data);
+                    wx.hideLoading({
+                      complete: (res) => {},
+                    })
                     that.setData({
                       orderId: res.data.msg
                     })
@@ -596,27 +474,25 @@ Page({
                       'package': res.data.data.prepayId,
                       'signType': 'MD5',
                       'paySign': res.data.data.sign,
-                      'success': function(res) {
-                        console.log("支付成功");
-                        console.log(that.data.orderId);
+                      'success': function (res) {
                         wx.navigateTo({
                           url: '/pages/order/order',
                         })
                       },
-                      'fail': function(res) {
+                      'fail': function (res) {
                         console.log(res);
                         //console.log(that.data.orderId);
                         if (res.errMsg == "requestPayment:fail cancel") {
                           wx.navigateTo({
-                            url: '/pages/obligation/obligation?orderId=' + that.data.orderId ,
+                            url: '/pages/obligation/obligation?orderId=' + that.data.orderId,
                           })
                         } else {
                           wx.request({
-                            url: url+'pay/closeOrder/' + that.data.orderId,
+                            url: url + 'pay/closeOrder/' + that.data.orderId,
                           })
                         }
                       },
-                      'complete': function(res) {
+                      'complete': function (res) {
                         that.setData({
                           disabled: false
                         })

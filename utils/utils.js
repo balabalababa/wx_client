@@ -9,6 +9,6 @@ function debounce(func, delay) {
 }
 module.exports ={
   url:'https://mall.qszhuang.com/backstage/',
-  // url: 'http://192.168.100.172:8085/backstage/',
+  // url: 'http://192.168.0.173:8085/backstage/',
   debounce:debounce
 }

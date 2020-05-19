@@ -27,7 +27,7 @@
 					<text>待转单</text>
 					<text class="total" wx:if="{{gousenum}}">{{gousenum}}</text>
 				</navigator>
-				<navigator class="branch" url='/pages/order/order?num=3'>
+				<navigator class="branch" url='/pages/order/order?num=4'>
 					<image src='../../assets/range.jpg'></image>
 					<text>待评价</text>
 					<text class="total" wx:if="{{commentnum}}">{{commentnum}}</text>

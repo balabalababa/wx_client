@@ -51,7 +51,7 @@
   <view class='wrap_scroll'>
     <view class='lis' wx:for='{{tagArray}}' wx:key='index' wx:for-item="item">
       <view class='icon'>
-        <text>{{item[2]==3?30:item[2]}}</text>
+        <text>{{(item[2]==3||item[2]==1)?15:item[2]}}</text>
       </view>
       <view class='content'>
         <text>{{item[0]}}</text>

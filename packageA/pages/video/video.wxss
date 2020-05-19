@@ -1,4 +1,4 @@
-#myVideo{
+.video{
   width:100%;
 }
 .room_title{

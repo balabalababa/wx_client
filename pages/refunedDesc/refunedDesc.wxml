@@ -1,0 +1,41 @@
+<view class="refund">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		<view class="section ">
+			<view class="section__title"> <text>*</text>是否去过门店：</view>
+			<radio-group name="store">
+				<label>
+					<radio value="去过" />去过</label>
+				<label>
+					<radio value="没去过" />没去过</label>
+			</radio-group>
+		</view>
+		<view class="section ">
+			<view class="section__title"><text>*</text>是否联系商家：</view>
+			<radio-group name="contact">
+				<label>
+					<radio value="联系过" />联系过</label>
+				<label>
+					<radio value="没联系过" />没联系过</label>
+			</radio-group>
+		</view>
+		<view class=" section_gap">
+			<view class="section__title"><text>*</text>选择退单理由：</view>
+			<radio-group name="desc" bindchange="handleClick">
+				<label>
+					<radio value="商家服务不满意" />商家服务不满意</label>
+				<label>
+					<radio value="已经买了其他品牌" />已经买了其他品牌</label>
+				<label>
+					<radio value="不打算装修了" />不打算装修了</label>
+				<label>
+					<radio value="拍错了/重拍" />拍错了/重拍</label>
+				<label>
+					<radio value="其他" />其他</label>
+			</radio-group>
+			<textarea placeholder="请填写其他理由" name="textarea" wx:if="{{descFlag}}" />
+			</view>
+  <view class="btn-area" wx:if="{{flag}}">
+    <button formType="submit" type="primary">确认退款</button>
+  </view>
+</form>
+</view>

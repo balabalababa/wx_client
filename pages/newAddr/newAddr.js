@@ -162,7 +162,7 @@ Page({
     e.detail.value.name = e.detail.value.name.replace(/\s+/g, '')
     e.detail.value.addrdetail = e.detail.value.addrdetail.replace(/\s+/g, '')
     e.detail.value.tel = e.detail.value.tel.replace(/\s+/g, '')
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var myreg = /^1[3456789]\d{9}$/;
     if (!myreg.test(e.detail.value.tel)) {
       wx.showToast({
         title: '手机号有误！',
